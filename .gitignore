@@ -43,3 +43,5 @@
 
 # Docker MongoDB large files
 /docker/mongo/journal/*
+/docker/mongo/local*
+/docker/db/*

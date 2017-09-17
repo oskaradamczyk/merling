@@ -3,10 +3,12 @@ parameters:
     env(DB_PORT): ~
     env(DB_NAME): symfony
     env(DB_USER): root
-    env(DB_PASSWORD): ~
-    env(ROLES_PIPE_SEPERATED):
+    env(DB_PASSWORD): secret
+    env(ROLES_PIPE_SEPERATED): ROLE_SUPERADMIN|ROLE_ADMIN|ROLE_USER
     env(MONGODB_HOST): mongo
     env(MONGODB_PORT): 27017
+    env(MONGODB_USERNAME): username
+    env(MONGODB_PASSWORD): secret
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: ~

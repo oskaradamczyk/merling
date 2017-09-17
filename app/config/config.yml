@@ -54,7 +54,9 @@ doctrine_mongodb:
     connections:
         default:
             server: "mongodb://%env(MONGODB_HOST)%:%env(MONGODB_PORT)%"
-            options: {}
+            options:
+                username: %env(MONGODB_USERNAME)%
+                password: %env(MONGODB_PASSWORD)%
     default_database: test_database
     document_managers:
         default:
