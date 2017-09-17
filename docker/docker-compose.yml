@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+    mysql:
+        image: mysql:latest
+        environment:
+          - MYSQL_ROOT_PASSWORD=secret
+          - MYSQL_DATABASE=merling
+          - MYSQL_USER=mering_admin
+          - MYSQL_PASSWORD=secret
+        volumes:
+          - ./db:/var/lib/mysql
+        ports:
+          - 3307:3306
+
+    merling:
+        build: ./server
+        image: merling:v1.0
+        volumes:
+          - ../:/var/www
+        ports:
+          - 81:80
+          - 444:443
+        depends_on:
+          - mysql
+
+    mongo:
+        image: mongo:3.0.4
+        volumes:
+          - ./mongo:/data/db
+        ports:
+          - "27018:27017"
+        command: --smallfiles --rest

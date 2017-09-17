@@ -1,0 +1,38 @@
+services:
+    admin.user_admin:
+        class: AdminBundle\Admin\UserAdmin
+        arguments: [~, CoreBundle\Entity\User, ~]
+        calls:
+            - [setUserManager, ["@fos_user.user_manager.default"]]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: access, label: admin.menu.label.users, on_top: true }
+    admin.site_admin:
+        class: AdminBundle\Admin\SiteAdmin
+        arguments: [~, CoreBundle\Entity\Site, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: management, label: admin.menu.label.site}
+    admin.site_group_admin:
+        class: AdminBundle\Admin\SiteGroupAdmin
+        arguments: [~, CoreBundle\Entity\SiteGroup, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: management, label: admin.menu.label.site_group }
+    admin.cms_page_admin:
+        class: AdminBundle\Admin\CmsPageAdmin
+        arguments: [~, CoreBundle\Document\CmsPage, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, group: content, label: admin.menu.label.cms_page }
+    admin.gallery_admin:
+        class: AdminBundle\Admin\GalleryAdmin
+        arguments: [~, CoreBundle\Document\Gallery, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, group: content, label: admin.menu.label.gallery }
+    admin.image:
+        class: AdminBundle\Admin\ImageAdmin
+        arguments: [~, CoreBundle\Document\Image, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, group: admin, label: admin.menu.label.image }
+    admin.meta_keyword:
+        class: AdminBundle\Admin\MetaKeywordAdmin
+        arguments: [~, CoreBundle\Document\MetaKeyword, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, group: admin, label: admin.menu.label.image }

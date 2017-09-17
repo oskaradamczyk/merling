@@ -1,0 +1,31 @@
+{% block head %}  
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="keywords" content="{% block metakeywords %}{% endblock %}"/>
+        <meta name=”description” content="{% block metadescription %}{% endblock %}" />
+        <meta charset="utf-8"/>
+        {% block javascripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+            <script src="{{ asset('bundles/frontend/js/bootstrap/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('bundles/frontend/js/main.js') }}"></script>
+        {% endblock %}
+        {% block favicon %}
+            <link rel="icon" type="image/png" href="favicon.png">
+        {% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/frontend/css/bootstrap/bootstrap.min.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/frontend/css/main.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/frontend/css/font-awesome/font-awesome.css') }}">
+            <link href='http://fonts.googleapis.com/css?family=Exo&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet" type='text/css'>
+            <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet" type="text/css">
+            <link href='http://fonts.googleapis.com/css?family=Dosis&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        {% endblock %}
+        <meta property="og:url"           content="{% block fb_url %}{% endblock %}" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="{% block fb_title %}{% endblock %}" />
+        <meta property="og:description"   content="{% block fb_metadescription %}{% endblock %}" />
+        <meta property="og:image"         content="http://merling.pl" />
+    </head>
+{% endblock %}

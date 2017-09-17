@@ -1,0 +1,7 @@
+services:
+    CoreBundle\Manager\AbstractManager:
+        abstract: true
+        
+    CoreBundle\Manager\EntityManager\SiteManager:
+        parent: CoreBundle\Manager\AbstractManager
+        

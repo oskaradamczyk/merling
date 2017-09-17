@@ -1,0 +1,4 @@
+admin:
+    user:
+        create:
+            password_confirmation_invalid: Potwierdzenie hasła nie jest identyczne względem hasła!

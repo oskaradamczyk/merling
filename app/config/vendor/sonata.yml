@@ -1,0 +1,14 @@
+sonata_block:
+    default_contexts: [sonata_page_bundle]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+#sonata_doctrine_mongo_db_admin:
+#    connections:
+#        default:
+#            server: "mongodb://%env(mongodb_host)%:%env(mongodb_port)%"
+#            options: {}
+#    default_database: ptd_dev_deb
+#    document_managers:
+#        default:
+#            auto_mapping: true

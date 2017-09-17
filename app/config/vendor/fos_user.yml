@@ -1,0 +1,9 @@
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: CoreBundle\Entity\User
+    group:
+        group_class: CoreBundle\Entity\Group
+    from_email:
+        address:        pressToDev@gmail.com
+        sender_name:    Oskar Adamczyk

@@ -1,0 +1,14 @@
+services:
+    gedmo_reference_listener:
+        class: Gedmo\References\ReferencesListener
+        tags:
+            - { name: doctrine_mongodb.odm.event_subscriber }
+        calls:
+            - [ setAnnotationReader, [ "@annotation_reader" ] ]
+            - [ registerManager, [ 'orm', "@doctrine.orm.entity_manager" ] ]
+            
+    CoreBundle\Listener\EventListener\MediaUrlEventListener:
+        autowire: true
+        tags:
+            - { name: doctrine.event_listener, event: prePersist, method: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate, method: preUpdate }

@@ -1,0 +1,44 @@
+<footer class="foot">
+    <div class="footerBar"  onmouseenter="growSlowly()" onmouseleave="shrinkSlowly()">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-5 col-lg-5">
+                    <div class="footerText footerTextLeft">
+                        <h3>Kontakt</h3>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-md-offset-3 col-lg-offset-3">
+                    <div class="footerText footerTextRight">
+                        <h3>Adres</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-lg-2 col-md-offset-1 col-lg-offset-1">
+                    <div class="footerText footerTextLeft row">
+                        <span class="info">Grzegorz Chorzelewski</span><br>
+                        <span class="fa fa-mobile" aria-hidden="true"></span><span class="info">+48 510132600</span><br>
+                        <span class="fa fa-phone-square" aria-hidden="true"></span><span class="info"> brak</span><br>
+                        <span class="fa fa-cloud-download" aria-hidden="true"></span><span class="info"><a href="#">www.merling.pl</a></span><br>
+                        <span class="fa fa-envelope" aria-hidden="true"></span><span class="info">merling06@wp.pl</span><br>
+                        <a href="index.php?page=contact">
+                            <div class="buttonJoin">DOŁĄCZ DO NAS</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-3 col-md-offset-2 col-lg-offset-2">
+                    <div class="footerLogo">
+                        <a href='{{ path('homepage') }}'><img class="imgFooter" src='{{ asset('bundles/frontend/images/merling-logo-scaled-colorized.png') }}'></a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <div class="footerText footerTextRight">ul.Chylońska 177/85,<br>Gdynia, 81-007<br>Pomorskie<br>Polska<br>Adresy basenów:<br>1. ul. Gospodarska 1<br>Gdynia - Chylonia, 81-068<br>2. ul. Żeromskiego 11<br>Kosakowo, 81-198<br>
+                        <div class="fb-like fbEditted" data-href="https://www.facebook.com/szkolaplywaniamerlin/" data-layout="button" data-width="100" data-action="like" data-show-faces="true" data-share="true"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.7"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>

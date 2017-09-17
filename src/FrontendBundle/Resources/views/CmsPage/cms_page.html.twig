@@ -1,0 +1,51 @@
+{% extends 'FrontendBundle:Layout:main.html.twig' %}
+{% block content %}
+    <main class="content">
+        <div class="asideContent">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="swiper-container">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <div class="swiper-slide">
+                                    <img
+                                </div>
+                                <div class="swiper-slide">Slide 2</div>
+                                <div class="swiper-slide">Slide 3</div>
+                                ...
+                            </div>
+                            <!-- If we need pagination -->
+                            <div class="swiper-pagination"></div>
+
+                            <!-- If we need navigation buttons -->
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+
+                            <!-- If we need scrollbar -->
+                            <div class="swiper-scrollbar"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.0/css/swiper.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.0/css/swiper.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.0/js/swiper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.0/js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.0/js/swiper.jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.0/js/swiper.jquery.min.js"></script>
+    {{ dump(data.content.galleries.0.images.0) }}
+
+{% endblock %}

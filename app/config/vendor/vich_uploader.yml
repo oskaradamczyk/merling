@@ -1,0 +1,12 @@
+vich_uploader:
+    db_driver: mongodb
+    mappings:
+        images:
+            uri_prefix:         '%admin.path.uri_prefix.gallery_images%'
+            upload_destination: '%kernel.root_dir%/../web/%admin.path.uri_prefix.gallery_images%'
+        favicon:
+            uri_prefix:         '%frontend.path.uri_prefix.favicon%'
+            upload_destination: '%kernel.root_dir%/../web/%frontend.path.uri_prefix.favicon%'
+        logo:
+            uri_prefix:         '%frontend.path.uri_prefix.logo%'
+            upload_destination: '%kernel.root_dir%/../web/%frontend.path.uri_prefix.logo%'

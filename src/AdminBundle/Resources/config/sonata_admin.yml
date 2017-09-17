@@ -1,0 +1,24 @@
+sonata_admin:
+    templates:
+#        user_block: :admin/default:user_block.html.twig
+        layout: AdminBundle:Default:standard_layout.html.twig
+    title: 'pressToDev'
+#    title_logo: 'logo.png'
+    dashboard:
+        groups:
+            dashboard:
+                label: 'admin.menu.label.default'
+                icon: '<i class="fa fa-dashboard"></i>'
+                items:
+                    - route: sonata_admin_dashboard
+                      label: 'admin.menu.label.dashboard'
+            access:
+                label: 'admin.menu.label.access'
+                icon:  '<i class="fa fa-id-card-o"></i>'
+            management:
+                label: 'admin.menu.label.management'
+                icon: '<i class="fa fa-cubes" aria-hidden="true"></i>'
+            content:
+                label: 'admin.menu.label.content'
+                icon: '<i class="fa fa-paint-brush" aria-hidden="true"></i>'
+

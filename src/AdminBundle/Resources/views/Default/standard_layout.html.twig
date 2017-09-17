@@ -1,0 +1,25 @@
+{% extends "SonataAdminBundle::standard_layout.html.twig" %}
+
+{% block side_bar_after_nav_content %}
+    <a title="Ostatnia aktualizacja: ">wersja</a>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        section.content .row .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        section.content .row .row > [class*='col-'] {
+            display: flex;
+            flex-direction: column;
+        }
+
+        section.content .row .row > [class*='col-'] > .box {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+{% endblock %}
