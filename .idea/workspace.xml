@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="07d70c54-29fb-4e43-90a6-98671204bef0" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/.gitkeep" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/aria_log.00000001" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/aria_log_control" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/auto.cnf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/connectpoint/client.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/connectpoint/client.ibd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/connectpoint/db.opt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/connectpoint/fos_user_user_group.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/connectpoint/fos_user_user_group.ibd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/connectpoint/migration_versions.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/connectpoint/migration_versions.ibd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/connectpoint/setting.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/connectpoint/setting.ibd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/connectpoint/site.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/connectpoint/site.ibd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/connectpoint/site_group.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/connectpoint/site_group.ibd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/connectpoint/user.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/connectpoint/user.ibd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/connectpoint/user_group.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/connectpoint/user_group.ibd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/ib_buffer_pool" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/ib_logfile0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/ib_logfile1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/ibdata1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/ibtmp1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/multi-master.info" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/column_stats.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/column_stats.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/column_stats.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/columns_priv.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/columns_priv.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/columns_priv.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/db.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/db.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/db.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/event.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/event.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/event.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/func.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/func.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/func.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/general_log.CSM" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/general_log.CSV" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/general_log.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/gtid_slave_pos.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/gtid_slave_pos.ibd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/help_category.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/help_category.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/help_category.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/help_keyword.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/help_keyword.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/help_keyword.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/help_relation.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/help_relation.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/help_relation.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/help_topic.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/help_topic.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/help_topic.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/host.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/host.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/host.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/index_stats.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/index_stats.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/index_stats.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/innodb_index_stats.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/innodb_index_stats.ibd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/innodb_table_stats.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/innodb_table_stats.ibd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/plugin.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/plugin.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/plugin.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/proc.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/proc.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/proc.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/procs_priv.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/procs_priv.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/procs_priv.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/proxies_priv.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/proxies_priv.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/proxies_priv.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/roles_mapping.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/roles_mapping.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/roles_mapping.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/servers.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/servers.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/servers.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/slow_log.CSM" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/slow_log.CSV" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/slow_log.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/table_stats.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/table_stats.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/table_stats.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/tables_priv.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/tables_priv.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/tables_priv.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/time_zone.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/time_zone.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/time_zone.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/time_zone_leap_second.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/time_zone_leap_second.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/time_zone_leap_second.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/time_zone_name.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/time_zone_name.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/time_zone_name.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/time_zone_transition.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/time_zone_transition.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/time_zone_transition.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/time_zone_transition_type.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/time_zone_transition_type.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/time_zone_transition_type.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/user.MYD" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/user.MYI" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/mysql/user.frm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/db/performance_schema/db.opt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/docker-compose.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/mongo/.gitkeep" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/mongo/local.0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/mongo/local.ns" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/mongo/mongod.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/mongo/storage.bson" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/mongo/test_database.0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/mongo/test_database.ns" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/server/Dockerfile" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/server/apache-vhost.conf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/server/default-ssl.conf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/server/entrypoint.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/server/server.key" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/server/server.pem" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/xrun.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nbproject/private/private.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nbproject/project.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nbproject/project.xml" afterPath="" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1044">
+              <caret line="58" column="29" lean-forward="false" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="security.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+              <folding>
+                <marker date="1506174410356" expanded="true" signature="109:971" ph="security: &lt;5 keys&gt;" />
+                <marker date="1506174410356" expanded="true" signature="315:321" ph="ROLE_ADMIN" />
+                <marker date="1506174410356" expanded="true" signature="326:408" ph="providers: &lt;1 key&gt;" />
+                <marker date="1506174410356" expanded="true" signature="345:408" ph="fos_userbundle: &lt;1 key&gt;" />
+                <marker date="1506174410356" expanded="true" signature="377:408" ph="fos_user.…r.username" />
+                <marker date="1506174410356" expanded="true" signature="413:704" ph="firewalls: &lt;1 key&gt;" />
+                <marker date="1506174410356" expanded="true" signature="432:704" ph="main: &lt;4 keys&gt;" />
+                <marker date="1506174410356" expanded="true" signature="459:461" ph="^/" />
+                <marker date="1506174410356" expanded="true" signature="474:592" ph="form_login: &lt;2 keys&gt;" />
+                <marker date="1506174410356" expanded="true" signature="512:526" ph="fos_userbundle" />
+                <marker date="1506174410356" expanded="true" signature="565:592" ph="security.…en_manager" />
+                <marker date="1506174410356" expanded="true" signature="669:673" ph="true" />
+                <marker date="1506174410356" expanded="true" signature="700:704" ph="true" />
+                <marker date="1506174410356" expanded="true" signature="709:971" ph="access_control: &lt;4 items&gt;" />
+                <marker date="1506174410356" expanded="true" signature="743:751" ph="^/login$" />
+                <marker date="1506174410356" expanded="true" signature="759:787" ph="IS_AUTHEN…NONYMOUSLY" />
+                <marker date="1506174410356" expanded="true" signature="808:818" ph="^/register" />
+                <marker date="1506174410356" expanded="true" signature="826:854" ph="IS_AUTHEN…NONYMOUSLY" />
+                <marker date="1506174410356" expanded="true" signature="875:886" ph="^/resetting" />
+                <marker date="1506174410356" expanded="true" signature="894:922" ph="IS_AUTHEN…NONYMOUSLY" />
+                <marker date="1506174410356" expanded="true" signature="943:951" ph="^/admin/" />
+                <marker date="1506174410356" expanded="true" signature="959:969" ph="ROLE_ADMIN" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="22" column="7" lean-forward="false" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/docker/pma/config.user.inc.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/docker/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/docker/server/Dockerfile" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="329" />
+    <option name="y" value="84" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="merling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="merling" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="merling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="merling" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="merling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="merling" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="merling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="merling" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="merling" type="b2602c69:ProjectViewProjectNode" />
+              <item name="merling" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="CoreBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="07d70c54-29fb-4e43-90a6-98671204bef0" name="Default" comment="" />
+      <created>1506178630576</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1506178630576</updated>
+      <workItem from="1506178633611" duration="3334000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3334000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="329" y="84" width="1400" height="1000" extended-state="0" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding>
+            <marker date="1506174410356" expanded="true" signature="109:971" ph="security: &lt;5 keys&gt;" />
+            <marker date="1506174410356" expanded="true" signature="315:321" ph="ROLE_ADMIN" />
+            <marker date="1506174410356" expanded="true" signature="326:408" ph="providers: &lt;1 key&gt;" />
+            <marker date="1506174410356" expanded="true" signature="345:408" ph="fos_userbundle: &lt;1 key&gt;" />
+            <marker date="1506174410356" expanded="true" signature="377:408" ph="fos_user.…r.username" />
+            <marker date="1506174410356" expanded="true" signature="413:704" ph="firewalls: &lt;1 key&gt;" />
+            <marker date="1506174410356" expanded="true" signature="432:704" ph="main: &lt;4 keys&gt;" />
+            <marker date="1506174410356" expanded="true" signature="459:461" ph="^/" />
+            <marker date="1506174410356" expanded="true" signature="474:592" ph="form_login: &lt;2 keys&gt;" />
+            <marker date="1506174410356" expanded="true" signature="512:526" ph="fos_userbundle" />
+            <marker date="1506174410356" expanded="true" signature="565:592" ph="security.…en_manager" />
+            <marker date="1506174410356" expanded="true" signature="669:673" ph="true" />
+            <marker date="1506174410356" expanded="true" signature="700:704" ph="true" />
+            <marker date="1506174410356" expanded="true" signature="709:971" ph="access_control: &lt;4 items&gt;" />
+            <marker date="1506174410356" expanded="true" signature="743:751" ph="^/login$" />
+            <marker date="1506174410356" expanded="true" signature="759:787" ph="IS_AUTHEN…NONYMOUSLY" />
+            <marker date="1506174410356" expanded="true" signature="808:818" ph="^/register" />
+            <marker date="1506174410356" expanded="true" signature="826:854" ph="IS_AUTHEN…NONYMOUSLY" />
+            <marker date="1506174410356" expanded="true" signature="875:886" ph="^/resetting" />
+            <marker date="1506174410356" expanded="true" signature="894:922" ph="IS_AUTHEN…NONYMOUSLY" />
+            <marker date="1506174410356" expanded="true" signature="943:951" ph="^/admin/" />
+            <marker date="1506174410356" expanded="true" signature="959:969" ph="ROLE_ADMIN" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1044">
+          <caret line="58" column="29" lean-forward="false" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="22" lean-forward="false" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/pma/config.user.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="7" lean-forward="false" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="32" column="36" lean-forward="false" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/server/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-216">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
