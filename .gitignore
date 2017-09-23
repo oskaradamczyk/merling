@@ -43,3 +43,4 @@
 
 # Docker MongoDB large files
 /docker
+/docker/*
