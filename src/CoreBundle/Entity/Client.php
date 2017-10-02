@@ -19,7 +19,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  * User model mapped on DB by FOSUser.
  *
  * @author oadamczyk
- * 
+ *
  * @ORM\Entity
  * @ORM\Table(name="client")
  * @UniqueEntity("username")

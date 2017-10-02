@@ -5,28 +5,33 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-lg-12">
-                        <div class="swiper-container">
-                            <!-- Additional required wrapper -->
-                            <div class="swiper-wrapper">
-                                <!-- Slides -->
-                                <div class="swiper-slide">
-                                    <img
-                                </div>
-                                <div class="swiper-slide">Slide 2</div>
-                                <div class="swiper-slide">Slide 3</div>
-                                ...
-                            </div>
-                            <!-- If we need pagination -->
-                            <div class="swiper-pagination"></div>
-
-                            <!-- If we need navigation buttons -->
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-
-                            <!-- If we need scrollbar -->
-                            <div class="swiper-scrollbar"></div>
-                        </div>
+                        {{ data.content.content }}
                     </div>
+                    {% if data.content.galleries.count > 0 and data.content.galleries[0].images.count > 0 %}
+                        <div class="col-md-12 col-lg-12">
+                            <div class="swiper-container">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper" style="height:700px; text-align:center;">
+                                    {% for image in data.content.galleries[0].images %}
+                                        <!-- Slides -->
+                                        <div class="swiper-slide">
+                                            <img style="margin: -300px; height: 600px; position:absolute; top: 50%;"
+                                                 src="{{ image.fileUrl }}">
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <!-- If we need pagination -->
+                                <div class="swiper-pagination"></div>
+
+                                <!-- If we need navigation buttons -->
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+
+                                <!-- If we need scrollbar -->
+                                <div class="swiper-scrollbar"></div>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="row">
                 </div>
@@ -46,6 +51,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.0/js/swiper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.0/js/swiper.jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.0/js/swiper.jquery.min.js"></script>
-    {{ dump(data.content.galleries.0.images.0) }}
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            // Optional parameters
+            loop: false,
 
+            // If we need pagination
+            pagination: '.swiper-pagination',
+
+            // Navigation arrows
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+
+            // And if we need scrollbar
+            scrollbar: '.swiper-scrollbar',
+        })
+    </script>
 {% endblock %}

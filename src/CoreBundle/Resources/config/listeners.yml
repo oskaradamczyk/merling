@@ -10,5 +10,4 @@ services:
     CoreBundle\Listener\EventListener\MediaUrlEventListener:
         autowire: true
         tags:
-            - { name: doctrine.event_listener, event: prePersist, method: prePersist }
-            - { name: doctrine.event_listener, event: preUpdate, method: preUpdate }
+            - { name: doctrine_mongodb.odm.event_listener, event: postLoad, method: postLoad }

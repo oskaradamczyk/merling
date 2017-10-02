@@ -9,6 +9,8 @@
 namespace CoreBundle\Listener\EventListener;
 
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
+use Doctrine\ODM\MongoDB\Event\PostCollectionLoadEventArgs;
+use Doctrine\ODM\MongoDB\Event\PreLoadEventArgs;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 use CoreBundle\Document\Image;
@@ -28,41 +30,21 @@ class MediaUrlEventListener
         $this->requestStack = $requestStack;
     }
 
-    public function prePersist(\Doctrine\ODM\MongoDB\Event\LifecycleEventArgs $event)
+    public function postLoad(LifecycleEventArgs $event)
     {
-        dump('test');exit();
         if ($event->getObject() instanceof Image) {
 
             /** @var Image $image */
             $image = $event->getObject();
-
-            if (!$image->getFile()) {
+            if (!$image->getName()) {
                 return;
             }
             $request = $this->requestStack->getCurrentRequest();
             $image->setFileUrl(
-                    $request->getSchemeAndHttpHost() .
-                    $this->uploaderHelper->asset($image, 'file')
+                $request->getSchemeAndHttpHost() .
+                $this->uploaderHelper->asset($image, 'file')
             );
-        }
-    }
 
-    public function preUpdate(LifecycleEventArgs $event)
-    {
-        dump($event->getObject());exit();
-        if ($event->getObject() instanceof Image) {
-
-            /** @var Image $image */
-            $image = $event->getObject();
-
-            if (!$image->getFile()) {
-                return;
-            }
-            $request = $this->requestStack->getCurrentRequest();
-            $image->setFileUrl(
-                    $request->getSchemeAndHttpHost() .
-                    $this->uploaderHelper->asset($image, 'file')
-            );
         }
     }
 

@@ -30,7 +30,7 @@ class Gallery extends AbstractDocumentModel
     /**
      *
      * @var CmsPage
-     * @MongoDB\ReferenceOne(targetDocument="CmsPage", inversedBy="cmsPage")
+     * @MongoDB\ReferenceOne(targetDocument="CmsPage", inversedBy="cmsPage", cascade={"persist"})
      */
     protected $cmsPage;
 

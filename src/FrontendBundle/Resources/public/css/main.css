@@ -354,7 +354,7 @@ and open the template in the editor.
         letter-spacing: 2px;
         text-align: center; }
     .asideContent > .container > .row > div:last-child {
-      padding-bottom: 20px; }
+      padding: 20px; }
 
 .frame {
   margin: 10px 20px 10px 20px;

@@ -43,9 +43,12 @@ class CmsPageAdmin extends CustomAbstractAdmin
                     'required' => false,
                 ])
                 ->add('content', CKEditorType::class, ['required' => false])
-                ->add('galleries', 'entity', [
-                    'class' => Gallery::class,
+                ->add('galleries', 'sonata_type_collection', [
                     'required' => false,
+                ], [
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'sortable' => 'position'
                 ])
                 ->end()
                 ->end();

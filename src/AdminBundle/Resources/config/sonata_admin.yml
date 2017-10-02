@@ -1,7 +1,7 @@
 sonata_admin:
     templates:
 #        user_block: :admin/default:user_block.html.twig
-        layout: AdminBundle:Default:standard_layout.html.twig
+#        layout: AdminBundle:Default:standard_layout.html.twig
     title: 'pressToDev'
 #    title_logo: 'logo.png'
     dashboard:

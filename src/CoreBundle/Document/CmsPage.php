@@ -39,7 +39,7 @@ class CmsPage extends AbstractDocumentModel
     /**
      *
      * @var Collection
-     * @MongoDB\ReferenceMany(targetDocument="Gallery", mappedBy="cmsPage", orphanRemoval=true)
+     * @MongoDB\ReferenceMany(targetDocument="Gallery", mappedBy="cmsPage", orphanRemoval=true, cascade={"persist"})
      * @Assert\Valid
      */
     protected $galleries;
@@ -93,7 +93,7 @@ class CmsPage extends AbstractDocumentModel
     }
 
     /**
-     * 
+     *
      * @return string|null
      */
     public function getContent()
@@ -102,7 +102,7 @@ class CmsPage extends AbstractDocumentModel
     }
 
     /**
-     * 
+     *
      * @param type $content
      * @return \self
      */
@@ -113,7 +113,7 @@ class CmsPage extends AbstractDocumentModel
     }
 
     /**
-     * 
+     *
      * @return SiteGroup|null
      */
     public function getSiteGroup()
@@ -122,7 +122,7 @@ class CmsPage extends AbstractDocumentModel
     }
 
     /**
-     * 
+     *
      * @return Site|null
      */
     public function getSite()
@@ -131,7 +131,7 @@ class CmsPage extends AbstractDocumentModel
     }
 
     /**
-     * 
+     *
      * @param Site|null $site
      * @return \self
      */
@@ -143,7 +143,7 @@ class CmsPage extends AbstractDocumentModel
     }
 
     /**
-     * 
+     *
      * @param SiteGroup|null $group
      * @return \self
      */
@@ -155,7 +155,7 @@ class CmsPage extends AbstractDocumentModel
     }
 
     /**
-     * 
+     *
      * @return Collection|null
      */
     public function getGalleries()
@@ -164,7 +164,7 @@ class CmsPage extends AbstractDocumentModel
     }
 
     /**
-     * 
+     *
      * @param Collection $galleries
      * @return \self
      */
@@ -175,7 +175,7 @@ class CmsPage extends AbstractDocumentModel
     }
 
     /**
-     * 
+     *
      * @param Gallery $gallery
      * @return \self
      */
@@ -186,7 +186,7 @@ class CmsPage extends AbstractDocumentModel
     }
 
     /**
-     * 
+     *
      * @param Gallery $gallery
      * @return \self
      */
