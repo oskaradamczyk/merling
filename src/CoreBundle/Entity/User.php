@@ -1,38 +1,38 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Created by PhpStorm.
+ * User: oadamczyk
+ * Date: 01.09.17
+ * Time: 06:56
  */
 
 namespace CoreBundle\Entity;
 
+use CoreBundle\Model\AbstractModelInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * User model mapped on DB by FOSUser.
- *
- * @author oadamczyk
- * 
+ * Class User
+ * @package CoreBundle\Entity
  * @ORM\Entity
+ * @ORM\EntityListeners({"CoreBundle\Listener\EntityListener\UserEntityListener"})
  * @ORM\Table(name="`user`")
  * @UniqueEntity("username")
  * @UniqueEntity("email")
  */
-class User extends BaseUser
+class User extends BaseUser implements AbstractModelInterface
 {
-
     use TimestampableEntity,
         BlameableEntity;
 
     /**
-     * 
+     * @var int
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -40,50 +40,80 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * 
+     * @var ArrayCollection
      * @ORM\ManyToMany(targetEntity="CoreBundle\Entity\Group")
-     * @ORM\JoinTable(name="fos_user_user_group",
+     * @ORM\JoinTable(name="user_user_group",
      *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
+     * )
+     * @Assert\Count(
+     *      min = 1,
+     *      minMessage = "admin.fos_user.create.groups"
      * )
      */
     protected $groups;
 
     /**
-     * 
-     * @Assert\Regex("/([A-Z]+)/")
-     * @Assert\Length(min=8)
+     * @var Config
+     * @ORM\OneToOne(targetEntity="Config", mappedBy="user")
+     */
+    protected $config;
+
+    /**
+     * @var string
+     * @Assert\Regex(
+     *     pattern="/([A-Z]+)/",
+     *     message="core.fos_user.create.password_format"
+     * )
+     * @Assert\Length(
+     *     min=8,
+     *     minMessage="core.fos_user.create.password_length"
+     * )
+     * @Assert\NotBlank(groups={"Create"})
      */
     protected $plainPassword;
 
     /**
-     *
-     * @var string
-     * @Assert\Expression(
-     *      "this.getPlainPassword() == this.getPasswordConfirmation()",
-     *      message="admin.user.create.password_confirmation_invalid")
-     * )
+     * @return Config|null
      */
-    protected $passwordConfirmation;
-
-    /**
-     * 
-     * @return null|string
-     */
-    public function getPasswordConfirmation()
+    public function getConfig()
     {
-        return $this->passwordConfirmation;
+        return $this->config;
     }
 
     /**
-     * 
-     * @param string $passwordConfirmation
-     * @return \self
+     * @param Config|null $config
+     * @return User
      */
-    public function setPasswordConfirmation(string $passwordConfirmation): self
+    public function setConfig($config): self
     {
-        $this->passwordConfirmation = $passwordConfirmation;
+        $this->config = $config;
         return $this;
     }
 
+    /**
+     * @param null|string $name
+     * @return User
+     */
+    public function setName(?string $name): self
+    {
+        $this->username = $name;
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getName(): ?string
+    {
+        return $this->username;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->username ? $this->username : '';
+    }
 }

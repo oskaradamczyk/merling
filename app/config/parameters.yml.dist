@@ -1,19 +1,27 @@
 parameters:
-    env(DB_HOST): 127.0.0.1
-    env(DB_PORT): ~
+    env(DB_HOST): mysql
+    env(DB_PORT): 3306
     env(DB_NAME): symfony
     env(DB_USER): root
     env(DB_PASSWORD): secret
-    env(ROLES_PIPE_SEPERATED): ROLE_SUPERADMIN|ROLE_ADMIN|ROLE_USER
     env(MONGODB_HOST): mongo
     env(MONGODB_PORT): 27017
-    env(MONGODB_USERNAME): username
-    env(MONGODB_PASSWORD): secret
+    env(MONGODB_DATABASE): symfony
+    env(MONGODB_USER): null
+    env(MONGODB_PASSWORD): null
+    env(SUPER_ADMIN_USERNAME): username
+    env(SUPER_ADMIN_PASSWORD): secret
+    env(SUPER_ADMIN_EMAIL): email_address@domain.com
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: ~
     mailer_password: ~
     secret: ThisTokenIsNotSoSecretChangeIt
-    admin.path.uri_prefix.gallery_images: /uploads/images/gallery
-    frontend.path.uri_prefix.favicon: /uploads/images/favicon
-    frontend.path.uri_prefix.logo: /uploads/images/logo
+    core.languages:
+        - pl
+        - en
+    admin.path.uri_prefix.others: /uploads/others
+    admin.path.uri_prefix.images: /uploads/images
+    admin.path.uri_prefix.videos: /uploads/videos
+    admin.path.uri_prefix.favicon: /uploads/favicon
+

@@ -1,0 +1,34 @@
+services:
+    CoreBundle\Factory\SuperFactory:
+        autowire: true
+        arguments:
+            $dm: '@doctrine.odm.mongodb.document_manager'
+
+    CoreBundle\Factory\MailFactory:
+        factory: CoreBundle\Factory\SuperFactory:createFactory
+        arguments:
+            $factoryType: !php/const:CoreBundle\Factory\SuperFactory::MAIL_FACTORY_TYPE
+        calls:
+            - method: setMailer
+              arguments:
+                  - '@mailer'
+
+    CoreBundle\Factory\CmsFactory:
+        factory: CoreBundle\Factory\SuperFactory:createFactory
+        arguments:
+            $factoryType: !php/const:CoreBundle\Factory\SuperFactory::CMS_FACTORY_TYPE
+
+    CoreBundle\Factory\CategoryFactory:
+        factory: CoreBundle\Factory\SuperFactory:createFactory
+        arguments:
+            $factoryType: !php/const:CoreBundle\Factory\SuperFactory::CATEGORY_FACTORY_TYPE
+
+    CoreBundle\Factory\LogoFactory:
+        factory: CoreBundle\Factory\SuperFactory:createFactory
+        arguments:
+            $factoryType: !php/const:CoreBundle\Factory\SuperFactory::LOGO_FACTORY_TYPE
+
+    CoreBundle\Factory\FaviconFactory:
+        factory: CoreBundle\Factory\SuperFactory:createFactory
+        arguments:
+            $factoryType: !php/const:CoreBundle\Factory\SuperFactory::FAVICON_FACTORY_TYPE

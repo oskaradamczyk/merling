@@ -1,0 +1,28 @@
+{% extends 'FrontendBundle:Layout:base.html.twig' %}
+
+{% form_theme form 'FrontendBundle:Layout:Form/fields.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/frontend/js/parallax/parallax.min.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 parallax-window" data-parallax="scroll"
+            data-image-src="http://presstodev.dev/uploads/images/5a3e32528ec2a_pool.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 on-ready-fade">
+                            {{ form_start(form) }}
+                            {{ form_rest(form) }}
+                            {{ form_end(form) }}
+                        </div>
+                        <div class="col-md-6 on-ready-fade" style="background-color: blue; height:100px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

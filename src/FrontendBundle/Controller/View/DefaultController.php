@@ -1,32 +1,45 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Created by PhpStorm.
+ * User: oadamczyk
+ * Date: 01.09.17
+ * Time: 06:56
  */
 
 namespace FrontendBundle\Controller\View;
 
+use CoreBundle\Document\Gallery;
+use CoreBundle\Manager\SiteManager;
+use Doctrine\ODM\MongoDB\DocumentManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\RouterInterface;
 
 /**
  * Frontend default views controller
  *
  * @author oadamczyk
+ *
  */
 class DefaultController extends Controller
 {
 
     /**
+     * @param Request $request
      * @Route("/", name="homepage")
      * @return Response
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        $data['data'] = [];
+        /** @var RouterInterface $router */
+        $router = $this->get('router');
+//        dump($this->get(SiteManager::class));exit;
+//        echo $request->getBaseUrl(); echo '@test';exit;
+        /** @var DocumentManager $dm */
+        $dm = $this->get('doctrine_mongodb')->getManager();
+        $data['data'] = 'test';
         return $this->render('FrontendBundle:Default:homepage.html.twig', $data);
     }
 

@@ -2,14 +2,16 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "@AdminBundle/Resources/config/sonata_admin.yml" }
-    - { resource: "vendor/vich_uploader.yml" }
-    - { resource: "vendor/sonata.yml" }
-    - { resource: "vendor/fos_user.yml" }
-    - { resource: "vendor/stof_doctrine_extensions.yml" }
+    - { resource: '@AdminBundle/Resources/config/sonata_admin.yml' }
+    - { resource: '@AdminBundle/Resources/config/sonata_block.yml' }
+    - { resource: '@AdminBundle/Resources/config/sonata_core.yml' }
+    - { resource: '@AdminBundle/Resources/config/fos_user.yml' }
+    - { resource: '@CoreBundle/Resources/config/vich_uploader.yml' }
+    - { resource: '@CoreBundle/Resources/config/stof_doctrine_extensions.yml' }
+    - { resource: '@CoreBundle/Resources/config/config.yml'}
+    - { resource: '@FrontendBundle/Resources/config/knp_menu.yml' }
 parameters:
     default_locale: pl
-    locale: pl
 framework:
     #esi: ~
     secret: '%secret%'
@@ -22,9 +24,10 @@ framework:
     #serializer: { enable_annotations: true }
     templating:
         engines: ['twig']
-    default_locale: '%locale%'
+    default_locale: '%default_locale%'
     trusted_hosts: ~
     session:
+        storage_id: session.storage.native
         handler_id: session.handler.native_file
         save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
     fragments: ~
@@ -33,7 +36,7 @@ framework:
     php_errors:
         log: true
     translator: 
-        fallbacks: ["%locale%", "en"]
+        fallbacks: ['%default_locale%', 'en']
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
@@ -50,14 +53,14 @@ doctrine:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        mappings:
+            CoreBundle: ~
 doctrine_mongodb:
+    default_database: '%env(MONGODB_DATABASE)%'
     connections:
         default:
-            server: "mongodb://%env(MONGODB_HOST)%:%env(MONGODB_PORT)%"
-            options:
-                username: '%env(MONGODB_USERNAME)%'
-                password: '%env(MONGODB_PASSWORD)%'
-    default_database: merling_db
+            server: 'mongodb://%env(MONGODB_HOST)%:%env(MONGODB_PORT)%'
+            options: {}
     document_managers:
         default:
             auto_mapping: true
@@ -67,6 +70,15 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }    
+
+# Logger configuration
+monolog:
+    handlers:
+        email:
+            type: stream
+            path: '%kernel.logs_dir%/%kernel.environment%.email.log'
+            level: error
+            channels: [email]
 
 
 

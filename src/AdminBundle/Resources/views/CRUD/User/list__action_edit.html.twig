@@ -1,0 +1,10 @@
+{% if
+    admin.hasAccess(constant('CoreBundle\\Util\\ActionTypeEnum::EDIT_TYPE'), object)
+    and admin.hasRoute('edit')
+    and (app.user.id == object.id or is_granted(constant('CoreBundle\\Util\\ActionTypeEnum::ROLE_TYPE'), object))
+%}
+    <a href="{{ admin.generateObjectUrl('edit', object) }}" class="btn btn-sm btn-default edit_link" title="{{ 'action_edit'|trans({}, 'SonataAdminBundle') }}">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+        {{ 'action_edit'|trans({}, 'SonataAdminBundle') }}
+    </a>
+{% endif %}

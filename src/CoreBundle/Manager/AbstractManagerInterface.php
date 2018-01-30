@@ -1,41 +1,27 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Created by PhpStorm.
+ * User: oadamczyk
+ * Date: 01.11.17
+ * Time: 22:59
  */
 
 namespace CoreBundle\Manager;
 
-use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Common\Persistence\ObjectRepository;
-use Symfony\Component\HttpFoundation\Request;
+use CoreBundle\Model\AbstractObjectInterface;
+use CoreBundle\Service\AbstractServiceInterface;
+use Doctrine\Common\Collections\Collection;
 
-/**
- * Interface declaration for managers
- *
- * @author oadamczyk
- */
 interface AbstractManagerInterface
 {
+    /**
+     * @param AbstractObjectInterface $model
+     * @return Collection
+     */
+    public function validate(AbstractObjectInterface $model): Collection;
 
     /**
-     * 
-     * @return ObjectManager
+     * @return AbstractServiceInterface
      */
-    public function getObjectManager(): ObjectManager;
-
-    /**
-     * 
-     * @return ObjectRepository
-     */
-    public function getRepository(): ObjectRepository;
-
-    /**
-     * 
-     * @param string|null $requestType
-     * @return Request
-     */
-    public function getRequest(string $requestType = null): Request;
+    public function getService(): AbstractServiceInterface;
 }

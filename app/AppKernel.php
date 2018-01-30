@@ -29,7 +29,6 @@ class AppKernel extends Kernel
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new AppBundle\AppBundle(),
             new AdminBundle\AdminBundle(),
             new CoreBundle\CoreBundle(),
             new FrontendBundle\FrontendBundle()

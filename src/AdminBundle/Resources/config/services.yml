@@ -1,2 +1,14 @@
 imports:
     - { resource: sonata_admin_services.yml }
+    - { resource: listeners.yml }
+    - { resource: voters.yml }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    AdminBundle\:
+        resource: '../../../../src/AdminBundle/*'
+        exclude: '../../../../src/AdminBundle/{Entity,Repository}'

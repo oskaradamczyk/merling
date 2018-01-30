@@ -1,0 +1,12 @@
+# Logger configuration
+monolog:
+    handlers:
+        email:
+            type: stream
+            path: '%kernel.logs_dir%/%kernel.environment%.email.log'
+            level: error
+            channels: email
+twig:
+    globals:
+        languages: '%core.languages%'
+    exception_controller: CoreBundle:Exception:show

@@ -1,34 +1,31 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Created by PhpStorm.
+ * User: oadamczyk
+ * Date: 01.09.17
+ * Time: 06:56
  */
 
 namespace CoreBundle\Entity;
 
+use CoreBundle\Entity\SiteGroup;
+use CoreBundle\Entity\Site;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
-use CoreBundle\Entity\SiteGroup;
-use CoreBundle\Entity\Site;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * Settings model mapped on DB.
- *
- * @author oadamczyk
- * 
+ * Class Setting
+ * @package CoreBundle\Entity
  * @ORM\Entity
  * @ORM\Table(name="setting")
  * @UniqueEntity(fields={"host", "baseUrl"})
  */
-class Setting extends AbstractEntityModel
+class Setting extends EntityAbstractModel
 {
-
     use BlameableEntity,
         TimestampableEntity;
 

@@ -1,82 +1,104 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Created by PhpStorm.
+ * User: oadamczyk
+ * Date: 01.09.17
+ * Time: 06:56
  */
 
 namespace CoreBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
-use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Validator\Constraints as Assert;
-use Gedmo\Mapping\Annotation as Gedmo;
+use CoreBundle\Document\Favicon;
+use CoreBundle\Document\Logo;
 use CoreBundle\Entity\Site;
 use CoreBundle\Entity\Setting;
 use CoreBundle\Document\Product;
 use CoreBundle\Document\Category;
 use CoreBundle\Entity\Traits\SeoFriendlyEntity;
+use CoreBundle\Model\SiteAffiliationInterface;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * SiteGroup model mapped on DB.
- *
- * @author oadamczyk
- * 
- * @ORM\Entity
+ * Class SiteGroup
+ * @package CoreBundle\Entity
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\SiteGroupRepository")
  * @ORM\Table(name="site_group")
  */
-class SiteGroup extends AbstractEntityModel
+class SiteGroup extends EntityAbstractModel implements SiteAffiliationInterface
 {
-
     use SeoFriendlyEntity;
 
     /**
-     *
      * @var Site
      * @ORM\OneToMany(targetEntity="Site", mappedBy="siteGroup", cascade={"persist", "remove"})
      */
     protected $sites;
 
     /**
-     *
-     * @var ArrayCollection
-     * @Gedmo\ReferenceMany(type="odm", class="CoreBundle\Document\CmsPage", mappedBy="siteGroup")
+     * @var Collection
+     * @Gedmo\ReferenceMany(type="odm", class="CoreBundle\Document\Feature", mappedBy="siteGroup")
      */
-    protected $cmsPages;
+    protected $features;
 
     /**
-     *
-     * @var ArrayCollection
+     * @var Collection
      * @Gedmo\ReferenceMany(type="document", class="CoreBundle\Document\Category", mappedBy="siteGroup")
      */
     protected $categories;
 
     /**
-     *
      * @var ArrayCollection
      * @Gedmo\ReferenceMany(type="document", class="CoreBundle\Document\Product", mappedBy="siteGroup")
      */
     protected $products;
 
     /**
-     *
      * @var Setting
      * @ORM\OneToOne(targetEntity="Setting", mappedBy="siteGroup", cascade={"persist", "remove"})
      */
     protected $setting;
 
+    /**
+     * @var Favicon
+     * @Gedmo\ReferenceOne(type="odm", class="CoreBundle\Document\Favicon", mappedBy="site")
+     */
+    protected $favicon;
+
+    /**
+     * @var Logo
+     * @Gedmo\ReferenceOne(type="odm", class="CoreBundle\Document\Logo", mappedBy="site")
+     */
+    protected $logo;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $themeColor = '#000000';
+
+    /**
+     * @var string|null
+     * @ORM\Column(type="string", nullable=true)
+     */
+    protected $secondaryColor = '#000000';
+
+    /**
+     * SiteGroup constructor.
+     */
     public function __construct()
     {
         $this->sites = new ArrayCollection();
         $this->categories = new ArrayCollection();
         $this->products = new ArrayCollection();
-        $this->cmsPages = new ArrayCollection();
+        $this->features = new ArrayCollection();
     }
 
     /**
-     * 
      * @return Setting|null
      */
     public function getSetting()
@@ -85,7 +107,6 @@ class SiteGroup extends AbstractEntityModel
     }
 
     /**
-     * 
      * @param Setting $setting
      * @return \self
      */
@@ -96,36 +117,55 @@ class SiteGroup extends AbstractEntityModel
     }
 
     /**
-     * 
-     * @return ArrayCollection|null
+     * @return Collection|null
      */
-    public function getCmsPages()
+    public function getFeatures()
     {
-        return $this->cmsPages;
+        return $this->features;
     }
 
     /**
-     * 
-     * @param ArrayCollection $cmsPages
+     * @param Collection|null $features
      * @return \self
      */
-    public function setCmsPages(ArrayCollection $cmsPages): self
+    public function setFeatures($features): self
     {
-        $this->cmsPages = $cmsPages;
+        $this->features = $features;
         return $this;
     }
 
     /**
-     * 
+     * @return Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * @param Collection|null $categories
+     * @return SiteGroup
+     */
+    public function setCategories($categories): SiteGroup
+    {
+        if (!$categories) {
+            $categories = new ArrayCollection();
+        }
+        $this->categories = $categories;
+        return $this;
+    }
+
+    /**
+     *
      * @return string|null
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
 
     /**
-     * 
+     *
      * @param ArrayCollection $sites
      * @return \self
      */
@@ -136,7 +176,7 @@ class SiteGroup extends AbstractEntityModel
     }
 
     /**
-     * 
+     *
      * @param Site $site
      * @return \self
      */
@@ -147,16 +187,7 @@ class SiteGroup extends AbstractEntityModel
     }
 
     /**
-     * 
-     * @return ArrayCollection|null
-     */
-    public function getCategories()
-    {
-        return $this->categories;
-    }
-
-    /**
-     * 
+     *
      * @return ArrayCollection|null
      */
     public function getProducts()
@@ -165,18 +196,7 @@ class SiteGroup extends AbstractEntityModel
     }
 
     /**
-     * 
-     * @param ArrayCollection $categories
-     * @return \self
-     */
-    public function setCategories(ArrayCollection $categories): self
-    {
-        $this->categories = $categories;
-        return $this;
-    }
-
-    /**
-     * 
+     *
      * @param ArrayCollection $products
      * @return $this
      */
@@ -187,7 +207,7 @@ class SiteGroup extends AbstractEntityModel
     }
 
     /**
-     * 
+     *
      * @param Category $category
      * @return \self
      */
@@ -198,7 +218,7 @@ class SiteGroup extends AbstractEntityModel
     }
 
     /**
-     * 
+     *
      * @param Product $product
      * @return \self
      */
@@ -209,12 +229,74 @@ class SiteGroup extends AbstractEntityModel
     }
 
     /**
-     * 
-     * @return string
+     * @return Favicon|null
      */
-    public function __toString(): string
+    public function getFavicon(): ?Favicon
     {
-        return $this->name ? $this->name : '';
+        return $this->favicon;
     }
 
+    /**
+     * @param Favicon|null $favicon
+     * @return SiteGroup|null
+     */
+    public function setFavicon(?Favicon $favicon): ?SiteGroup
+    {
+        $this->favicon = $favicon;
+        return $this;
+    }
+
+    /**
+     * @return Logo|null
+     */
+    public function getLogo(): ?Logo
+    {
+        return $this->logo;
+    }
+
+    /**
+     * @param Logo|null $logo
+     * @return SiteGroup|null
+     */
+    public function setLogo(?Logo $logo): ?SiteGroup
+    {
+        $this->logo = $logo;
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getThemeColor(): ?string
+    {
+        return $this->themeColor;
+    }
+
+    /**
+     * @param null|string $themeColor
+     * @return SiteGroup
+     */
+    public function setThemeColor(?string $themeColor): SiteGroup
+    {
+        $this->themeColor = $themeColor;
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSecondaryColor(): ?string
+    {
+        return $this->secondaryColor;
+    }
+
+    /**
+     * @param null|string $secondaryColor
+     * @return SiteGroup
+     */
+    public function setSecondaryColor(?string $secondaryColor): SiteGroup
+    {
+        $this->secondaryColor = $secondaryColor;
+        return $this;
+    }
 }

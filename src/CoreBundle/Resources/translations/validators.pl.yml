@@ -1,0 +1,14 @@
+core:
+    one_per_site:
+        create:
+            site_and_site_group_xor: Objekt musi być przypisany do jednej strony lub grupy stron jednocześnie.
+            site_or_site_group_already_occupied {{ model }}: 'Istnieje już obiekt przypisany do tej strony lub grupy: {{ model }}.'
+    menu_aware:
+        create:
+            site_and_category_and_site_group_xor: Objekt musi być przypisany do jednej strony, kategorii lub grupy stron jednocześnie.
+    fos_user:
+        create:
+            password_length: Hasło musi zawierać przynajmniej osiem znaków.
+            password_format: Hasło musi zawierać przynajmniej jedną wielką literę.
+            password_confirmation_invalid: Potwierdzenie hasła nie jest identyczne względem hasła.
+            groups: Użytkownik musi mieć nadaną przynajmniej jedną grupę.

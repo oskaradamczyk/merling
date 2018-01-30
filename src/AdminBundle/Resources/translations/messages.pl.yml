@@ -1,4 +1,7 @@
 Username: Nazwa użytkownika
+Media Type: Typ mediów
+Media List: Lista mediów
+Add: Dodaj
 Name: Nazwa
 Action: Akcje
 Created By: Utworzone przez
@@ -20,27 +23,57 @@ Site Create: Dodaj stronę
 Site Group List: Grupy stron
 Site Group Create: Dodaj grupę stron
 Site: Strona
-Cms Page List: Strony CMS
+Config List: Konfiguracja
+pl: polski
+en: angielski
+Locale: Język
+Cms List: Strony CMS
 Content: Treść
-Cms Page Create: Dodaj stronę CMS
+Cms Create: Dodaj stronę CMS
+Category List: Kategorie
+Category: Kategoria
 Gallery List: Galerie
 Gallery Create: Dodaj galerię
 Images: Obrazy
+Preview: Podgląd
+File Url: URL pliku
+Cms Category List: Kategorie CMS
+Logo List: Loga
+Page List: Strony stałe
 Page Position: Pozycja na stronie
 File: Plik
 Delete: Usuń
 Url: URL
 Alt: Tekst alternatywny
-TOP: u góry strony
-BOTTOM: na dole strony
-SIDE_BAR: bocznie do kontentu
-ROLE_SUPER_ADMIN: Super admin
+Groups: Grupy
+Submit: Wyślij
 admin:
+    media:
+        image: obraz
+        video: film
+        other: plik innego typu
+    category:
+        cms: dział CMS
+        product: dział produktów
+    modal:
+        preview_close: Zamknij
+    base_options: Opcje główne
+    style: Stylowanie
+    fos_user:
+        languages: Język
+        username: Nazwa użytkownika
+        username_or_email: Nazwa użytkownika lub e-mail
+        password: Hasło
+        password_confirmation: Potwierdzenie hasła
+        sign_in: Zaloguj się!
+        remember_me: Zapamiętaj mnie
+        forget_password: Zapomniałeś hasło? Zresetuj je klikając tutaj!
+    exception:
+        access_denied: Wstęp wzbroniony!
+    config:
+        default: Domyślne ustawienia
     main: Główny
     seo: SEO
-    user:
-        create:
-            password_help: Hasło musi zawierać małe, wielkie litery i nie może być krótsze niż 8 znaków.
     menu:
         label:
             default: Główny
@@ -51,5 +84,13 @@ admin:
             content: Kontent
             site: Strony
             site_group: Grupy stron
-            cms_page: Strony CMS
+            cms: Strony CMS
+            page: Strony stałe
             gallery: Galerie
+            media: Biblioteka mediów
+            cms_category: Kategorie CMS
+            categories: Kategorie
+            config: Ustawienia
+            other: Inne pliki
+            logo: Logo
+            favicon: Fawikona

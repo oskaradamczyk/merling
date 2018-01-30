@@ -1,0 +1,9 @@
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
+            blameable: true
+    mongodb:
+        default:
+            timestampable: true
+            blameable: true

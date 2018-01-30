@@ -1,24 +1,38 @@
 sonata_admin:
     templates:
-#        user_block: :admin/default:user_block.html.twig
-#        layout: AdminBundle:Default:standard_layout.html.twig
+          edit: AdminBundle:CRUD:base_edit.html.twig
+          layout: AdminBundle::layout.html.twig
+#          dashboard: AdminBundle:Core:dashboard.html.twig
+#          user_block: AdminBundle:Core:user_block.html.twig
+    options:
+        html5_validate: false
+    assets:
+        stylesheets:
+            # Defaults:
+            - bundles/sonatacore/vendor/bootstrap/dist/css/bootstrap.min.css
+            - bundles/sonatacore/vendor/components-font-awesome/css/font-awesome.min.css
+            - bundles/sonatacore/vendor/ionicons/css/ionicons.min.css
+            - bundles/sonataadmin/vendor/admin-lte/dist/css/AdminLTE.min.css
+            - bundles/sonataadmin/vendor/admin-lte/dist/css/skins/skin-black.min.css
+            - bundles/sonataadmin/vendor/iCheck/skins/square/blue.css
+            - bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css
+            - bundles/sonataadmin/vendor/jqueryui/themes/base/jquery-ui.css
+            - bundles/sonatacore/vendor/select2/select2.css
+            - bundles/sonatacore/vendor/select2-bootstrap-css/select2-bootstrap.min.css
+            - bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css
+            - bundles/sonataadmin/css/styles.css
+            - bundles/sonataadmin/css/layout.css
+            - bundles/sonataadmin/css/tree.css
+            - bundles/sonataadmin/css/colors.css
+            # Customs:
+            - bundles/admin/css/main.css
+    security:
+        handler: sonata.admin.security.handler.role
     title: 'pressToDev'
-#    title_logo: 'logo.png'
-    dashboard:
-        groups:
-            dashboard:
-                label: 'admin.menu.label.default'
-                icon: '<i class="fa fa-dashboard"></i>'
-                items:
-                    - route: sonata_admin_dashboard
-                      label: 'admin.menu.label.dashboard'
-            access:
-                label: 'admin.menu.label.access'
-                icon:  '<i class="fa fa-id-card-o"></i>'
-            management:
-                label: 'admin.menu.label.management'
-                icon: '<i class="fa fa-cubes" aria-hidden="true"></i>'
-            content:
-                label: 'admin.menu.label.content'
-                icon: '<i class="fa fa-paint-brush" aria-hidden="true"></i>'
+#    title_logo: 'logo.png
+
+twig:
+    form_themes:
+        - 'SonataCoreBundle:Form:datepicker.html.twig'
+        - 'SonataCoreBundle:Form:color.html.twig'
 

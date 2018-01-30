@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    {% block fos_user_stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/admin/css/bootstrap/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/admin/css/fos-user/fos-user.css') }}">
+    {% endblock %}
+    {% block fos_user_javascripts %}
+        <script type="application/javascript" src="{{ asset('bundles/admin/js//jquery/jquery.min.js') }}"></script>
+        <script type="application/javascript" src="{{ asset('bundles/admin/js/bootstrap/bootstrap.min.js') }}"></script>
+    {% endblock %}
+</head>
+<body>
+<div>
+    {% block fos_user_content %}
+    {% endblock fos_user_content %}
+</div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+services:
+    FrontendBundle\Strategy\CmsMenuStrategy:
+        arguments:
+            $featureFactory: '@CoreBundle\Factory\CmsFactory'

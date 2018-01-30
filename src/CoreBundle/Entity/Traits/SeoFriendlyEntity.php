@@ -1,13 +1,14 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Created by PhpStorm.
+ * User: oadamczyk
+ * Date: 01.09.17
+ * Time: 06:56
  */
 
 namespace CoreBundle\Entity\Traits;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
@@ -18,29 +19,25 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 trait SeoFriendlyEntity
 {
-
     /**
-     *
      * @var string
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $title;
+
     /**
-     *
-     * @var Collection
-     * @Gedmo\ReferenceMany(type="odm", class="CoreBundle\Document\MetaKeyword")
+     * @var string
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $metaKeywords;
 
     /**
-     *
      * @var string
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $metaDescription;
 
     /**
-     * 
      * @return string|null
      */
     public function getTitle()
@@ -49,8 +46,7 @@ trait SeoFriendlyEntity
     }
 
     /**
-     * 
-     * @return Collection|null
+     * @return string|null
      */
     public function getMetaKeywords()
     {
@@ -58,7 +54,6 @@ trait SeoFriendlyEntity
     }
 
     /**
-     * 
      * @return string|null
      */
     public function getMetaDescription()
@@ -67,20 +62,18 @@ trait SeoFriendlyEntity
     }
 
     /**
-     * 
-     * @param string $title
+     * @param string|null $title
      * @return \self
      */
-    public function setTitle(string $title): self
+    public function setTitle($title): self
     {
         $this->title = $title;
         return $this;
     }
 
     /**
-     * 
-     * @param Collection|null $keywords
-     * @return \self
+     * @param string|null $keywords
+     * @return self
      */
     public function setMetaKeywords($keywords): self
     {
@@ -89,7 +82,6 @@ trait SeoFriendlyEntity
     }
 
     /**
-     * 
      * @param string $description
      * @return \self
      */
@@ -98,16 +90,4 @@ trait SeoFriendlyEntity
         $this->metaDescription = $description;
         return $this;
     }
-
-    /**
-     * 
-     * @param string $keyword
-     * @return \self
-     */
-    public function addMetaKeyword(string $keyword): self
-    {
-        $this->metaKeywords->add($keyword);
-        return $this;
-    }
-
 }

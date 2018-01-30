@@ -1,7 +1,20 @@
 services:
-    CoreBundle\Manager\AbstractManager:
-        abstract: true
-        
-    CoreBundle\Manager\EntityManager\SiteManager:
-        parent: CoreBundle\Manager\AbstractManager
-        
+    CoreBundle\Manager\SiteManager:
+        autowire: true
+        public: true
+        arguments:
+            $service: '@CoreBundle\Service\SiteService'
+            $om: '@doctrine.orm.entity_manager'
+            $modelClass: 'CoreBundle\Entity\Site'
+
+    CoreBundle\Manager\SiteGroupManager:
+        autowire: true
+        public: true
+        arguments:
+            $service: '@CoreBundle\Service\SiteGroupService'
+            $om: '@doctrine.orm.entity_manager'
+            $modelClass: 'CoreBundle\Entity\SiteGroup'
+
+    CoreBundle\Manager\SiteAffiliationManager:
+        autowire: true
+        public: true

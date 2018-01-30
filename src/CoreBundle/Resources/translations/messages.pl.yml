@@ -1,0 +1,24 @@
+core:
+    test: Test translation
+    fos_user:
+        not_found: Użytkownik o podanej nazwie lub adresie e-mail nie istnieje.
+        reset_request: Na Twoj adres e-mail wysłano link resetujący hasło do konta.
+        reset_request_blocked: |
+            Hasło zostało już zresetowane - jeśli nie otrzymałeś e-maila z linkiem resetującym, prosimy o kontakt z administracją:
+            <br><a href="mailto:%email%">%email%</a>
+    video:
+        poster_placeholder:
+            title: Tytułowy tekst
+            alt: Alternatywny tekst
+    email:
+        subject: Temat
+        content: Treść wiadomości
+        from: Nadawca
+        submit: Wyślij
+TOP: u góry strony
+BOTTOM: na dole strony
+SIDE_BAR: bocznie do kontentu
+ROLE_SUPER_ADMIN: Super admin
+ROLE_ADMIN: Admin
+ROLE_STAFF: Pracownik
+ROLE_GUEST: Gość

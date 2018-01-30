@@ -1,0 +1,27 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field %}
+    {% if object.getMediaType() == 'image' or object.getMediaType() == 'logo' or object.getMediaType() == 'favicon'%}
+        <div class="text-center">
+            <a data-toggle="modal" data-target="#image_preview_{{ object.id }}" title="{{ object.title }}">
+                <img class="vich-image-custom-list-preview" src="{{ object.fileUrl }}" alt="{{ object.alt }}" title="{{ object.title }}"/>
+            </a>
+        </div>
+        <div class="modal fade" id="image_preview_{{ object.id }}" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img src="{{ object.fileUrl }}" alt="{{ object.alt }}"
+                             title="{{ object.title }}"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{ 'admin.modal.preview_close'|trans }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

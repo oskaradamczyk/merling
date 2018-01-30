@@ -1,2 +1,24 @@
 imports:
     - { resource: listeners.yml }
+    - { resource: strategies.yml }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+
+    FrontendBundle\:
+        resource: '../../../../src/FrontendBundle/*'
+        exclude: '../../../../src/FrontendBundle/{Entity,Repository,Document,DataFixtures,Model,Manager,Listener,Factory}'
+
+    FrontendBundle\Strategy\CmsMenuStrategy:
+        arguments:
+            $featureFactory: '@CoreBundle\Factory\CategoryFactory'
+
+    FrontendBundle\Menu\MenuBuilder:
+        arguments:
+            $strategy: '@FrontendBundle\Strategy\CmsMenuStrategy'
+        tags:
+            - { name: knp_menu.menu_builder, method: createMenu, alias: cms }

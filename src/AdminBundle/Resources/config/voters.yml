@@ -1,0 +1,8 @@
+services:
+      AdminBundle\Security\Voter\UserVoter:
+          tags:
+              - { name: security.voter }
+
+      AdminBundle\Security\Voter\ConfigVoter:
+          tags:
+              - { name: security.voter }

@@ -22,6 +22,14 @@
                 <source>admin.menu.label.content</source>
                 <target>Zawartość stron</target>
             </trans-unit>
+            <trans-unit id="admin.menu.label.categories">
+                <source>admin.menu.label.categories</source>
+                <target>Kategorie</target>
+            </trans-unit>
+            <trans-unit id="Dashboard">
+                <source>Dashboard</source>
+                <target>Dashboard</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -1,0 +1,27 @@
+{% block head %}
+    <title>{% block title %}pressToDev{% endblock %}</title>
+    <meta name="keywords" content="{% block metakeywords %}CMS, pressToDev{% endblock %}"/>
+    <meta name=”description”
+          content="{% block metadescription %}Content management system for custom websites.{% endblock %}"/>
+    <meta charset="utf-8"/>
+    {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('bundles/frontend/js/jquery/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/frontend/js/main.js') }}"></script>
+    {% endblock %}
+    {% block favicon %}
+        {% if favicon is not null %}
+            <link rel="icon" type="image/png" href="{{ favicon.fileUrl }}">
+        {% endif %}
+    {% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/frontend/css/bootstrap/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/frontend/css/main.css') }}">
+        <link rel="stylesheet" type="text/css"
+              href="{{ asset('bundles/frontend/css/font-awesome/font-awesome.min.css') }}">
+    {% endblock %}
+    <meta property="og:url" content="{% block fb_url %}{% endblock %}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="{% block fb_title %}{% endblock %}"/>
+    <meta property="og:description" content="{% block fb_metadescription %}{% endblock %}"/>
+    <meta property="og:image" content="{{ path('homepage') }}"/>
+{% endblock %}

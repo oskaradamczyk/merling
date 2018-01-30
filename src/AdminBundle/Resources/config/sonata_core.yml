@@ -1,0 +1,9 @@
+sonata_core:
+#    form:
+#        mapping:
+#            enabled: false
+    flashmessage:
+        access_denied:
+            css_class: danger
+            types:
+                - { type: admin_bundle_access_denied, domain: AdminBundle }

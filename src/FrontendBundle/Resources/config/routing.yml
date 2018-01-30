@@ -1,3 +1,9 @@
-frontend:
-    resource: "@FrontendBundle/Controller/"
+frontend_view:
+    resource: "@FrontendBundle/Controller/View/"
     type: annotation
+    prefix: "/{_locale}"
+
+frontend_redirect:
+    resource: "@FrontendBundle/Controller/Redirect/"
+    type: annotation
+    prefix: ""

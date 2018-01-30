@@ -1,0 +1,4 @@
+services:
+    AdminBundle\Listener\EventListener\MenuBuilderEventListener:
+        tags:
+            - { name: kernel.event_listener, event: sonata.admin.event.configure.menu.sidebar, method: addMenuItems }

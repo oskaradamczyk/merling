@@ -1,6 +1,7 @@
 imports:
     - { resource: "@AdminBundle/Resources/config/services.yml" }
     - { resource: "@CoreBundle/Resources/config/services.yml" }
+    - { resource: "@FrontendBundle/Resources/config/services.yml" }
 parameters:
 services:
     _defaults:

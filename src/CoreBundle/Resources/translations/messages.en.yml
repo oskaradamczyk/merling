@@ -1,0 +1,15 @@
+core:
+    test: Test translation
+    fos_user:
+        reset_request: On Your e-mail was sent address password resetting link.
+    video:
+        poster_placeholder:
+            title: Title text
+            alt: Alternative text
+TOP: top of site
+BOTTOM: bottom of site
+SIDE_BAR: side bar
+ROLE_SUPER_ADMIN: Super admin
+ROLE_ADMIN: Admin
+ROLE_STAFF: Staff
+ROLE_GUEST: Guest

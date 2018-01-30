@@ -1,0 +1,62 @@
+Username: Username
+Name: Nazwa
+Action: Akcje
+Created By: Utworzone przez
+Created At: Data utworzenia
+Plain Password: Hasło
+Password Confirmation: Powtórz hasło
+Email: E-mail
+User List: Użytkownicy
+User Create: Dodaj użytkownika
+Host: Domena
+Base Url: URL strony
+Secure: Czy domena posiada certyfikat SSL?
+Site List: Strony
+Site Group: Grupa
+Title: Tytuł
+Meta Keywords: Słowa kluczowe
+Meta Description: Opis meta
+Site Create: Dodaj stronę
+Site Group List: Grupy stron
+Site Group Create: Dodaj grupę stron
+Site: Strona
+Cms Page List: Strony CMS
+Content: Treść
+Cms Page Create: Dodaj stronę CMS
+Gallery List: Galerie
+Gallery Create: Dodaj galerię
+Images: Obrazy
+Page Position: Pozycja na stronie
+File: Plik
+Delete: Usuń
+Url: URL
+Alt: Tekst alternatywny
+Groups: Groups
+Submit: Submit
+admin:
+    fos_user:
+        languages: Lang.
+        username: Username
+        username_or_email: Username or e-mail
+        password: Password
+        password_confirmation: Password confirmation
+        sign_in: Log in!
+        remember_me: Remember me
+        forget_password: Forgot password? Reset it with this link!
+    main: Główny
+    seo: SEO
+    user:
+        create:
+            password_help: Hasło musi zawierać małe, wielkie litery i nie może być krótsze niż 8 znaków.
+    menu:
+        label:
+            default: Main
+            access: Access
+            users: Users
+            dashboard: Dashboard
+            management: Manage
+            content: Content
+            site: Pages
+            site_group: Page groups
+            cms_page: CMS pages
+            gallery: Galleries

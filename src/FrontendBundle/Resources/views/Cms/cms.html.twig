@@ -1,0 +1,71 @@
+{% extends 'FrontendBundle:Layout:base.html.twig' %}
+
+{% block content %}
+    <main class="content">
+        <div class="asideContent">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        {{ cms.content }}
+                    </div>
+                    {% if cms.galleries.count > 0 and cms.galleries[0].images.count > 0 %}
+                        <div class="col-md-12 col-lg-12">
+                            <div class="swiper-container">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper" style="height:700px; text-align:center;">
+                                    {% for image in cms.galleries[0].images %}
+                                        <!-- Slides -->
+                                        <div class="swiper-slide">
+                                            <img style="margin: -300px; height: 600px; position:absolute; top: 50%;"
+                                                 src="{{ image.fileUrl }}">
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <!-- If we need pagination -->
+                                <div class="swiper-pagination"></div>
+
+                                <!-- If we need navigation buttons -->
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+
+                                <!-- If we need scrollbar -->
+                                <div class="swiper-scrollbar"></div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="row">
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.0/css/swiper.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.0/css/swiper.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.0/js/swiper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.0/js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.0/js/swiper.jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.0/js/swiper.jquery.min.js"></script>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            // Optional parameters
+            loop: false,
+
+            // If we need pagination
+            pagination: '.swiper-pagination',
+
+            // Navigation arrows
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+
+            // And if we need scrollbar
+            scrollbar: '.swiper-scrollbar',
+        })
+    </script>
+{% endblock %}

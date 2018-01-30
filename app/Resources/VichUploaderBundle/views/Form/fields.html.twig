@@ -1,0 +1,61 @@
+{% block vich_file_row -%}
+    {% set force_error = true %}
+    {{- block('form_row') }}
+{%- endblock %}
+
+{% block vich_file_widget %}
+    {% spaceless %}
+        <div class="vich-file">
+            {{ form_widget(form.file) }}
+            {% if form.delete is defined %}
+                {{ form_row(form.delete) }}
+            {% endif %}
+
+            {% if download_uri %}
+                <a href="{{ download_uri }}">{{ translation_domain is same as(false) ? download_label : download_label|trans({}, translation_domain) }}</a>
+            {% endif %}
+        </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block vich_image_row -%}
+    {% set force_error = true %}
+    {{- block('form_row') }}
+{%- endblock %}
+
+{% block vich_image_widget %}
+    {% spaceless %}
+        <div class="vich-image">
+        {{ form_widget(form.file) }}
+        {% if form.delete is defined %}
+            {{ form_row(form.delete) }}
+        {% endif %}
+
+        {% if object.id is defined %}
+            {% if image_uri %}
+                <a data-toggle="modal" data-target="#image_preview_{{ object.id }}" title="{{ object.title }}">
+                    <img class="vich-image-custom-preview" src="{{ object.fileUrl }}" alt="{{ object.alt }}"
+                         title="{{ object.title }}"/>
+                </a>
+            {% endif %}
+            </div>
+            <div class="modal fade" id="image_preview_{{ object.id }}" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img src="{{ object.fileUrl }}" alt="{{ object.alt }}"
+                                 title="{{ object.title }}"/>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal">{{ 'admin.modal.preview_close'|trans }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}

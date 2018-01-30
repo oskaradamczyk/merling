@@ -1,0 +1,30 @@
+{% use "FrontendBundle:Layout/Partials:head.html.twig" %}
+{% use "FrontendBundle:Layout/Partials:header.html.twig" %}
+{% use "FrontendBundle:Layout/Partials:footer.html.twig" %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    {{ block('head') }}
+</head>
+<body{% if not app.session.get('frontend_already_visited') %} class="opacity02"{% endif %}>
+<style>
+    #document-progress-bar {
+        background-color: {{ secondary_color }};
+    }
+
+    .blur, #header, #footer {
+        background-color: {{ theme_color }};
+    }
+
+    #header, .border-decorator-horizontal, .blur:first-child, .blur:nth-child(3),
+    .parallax-window, #upper-navbar a:hover, #upper-navbar a:focus, .copyright,
+    #upper-navbar a:active, #cms-menu a:hover, #menu a:focus, #menu a:active {
+        border-color: {{ secondary_color }}
+    }
+</style>
+{{ block('header') }}
+{% block content %}{% endblock %}
+{{ block('footer') }}
+</body>
+</html>

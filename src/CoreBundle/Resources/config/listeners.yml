@@ -1,13 +1,58 @@
 services:
-    gedmo_reference_listener:
-        class: Gedmo\References\ReferencesListener
+    # EntityListener
+
+    CoreBundle\Listener\EntityListener\SiteEntityListener:
+        autowire: true
+        arguments:
+            $environment: '%kernel.environment%'
+            $projectDir:  '%kernel.project_dir%'
+        tags:
+            - { name: doctrine.orm.entity_listener, event: postLoad, method: postLoad }
+
+    CoreBundle\Listener\EntityListener\UserEntityListener:
+        tags:
+            - { name: doctrine.orm.entity_listener, event: prePersist, method: prePersist }
+            - { name: doctrine.orm.entity_listener, event: postPersist, method: postPersist }
+
+    # DocumentListener
+
+    CoreBundle\Listener\DocumentListener\MediaDocumentListener:
+        autowire: true
+        arguments:
+            $uploaderHelper: '@vich_uploader.templating.helper.uploader_helper'
+        tags:
+            - { name: doctrine_mongodb.odm.event_listener, event: postLoad, method: postLoad }
+
+    Gedmo\References\ReferencesListener:
         tags:
             - { name: doctrine_mongodb.odm.event_subscriber }
         calls:
             - [ setAnnotationReader, [ "@annotation_reader" ] ]
             - [ registerManager, [ 'orm', "@doctrine.orm.entity_manager" ] ]
-            
-    CoreBundle\Listener\EventListener\MediaUrlEventListener:
+
+    # EventListener
+
+    CoreBundle\Listener\EventListener\LocaleEventListener:
         autowire: true
+        arguments:
+            $languages: '%core.languages%'
         tags:
-            - { name: doctrine_mongodb.odm.event_listener, event: postLoad, method: postLoad }
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+    CoreBundle\Listener\EventListener\SiteAffiliationEventListener:
+        autowire: true
+        lazy: true
+        arguments:
+            $environment: '%kernel.environment%'
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+    CoreBundle\Listener\EventListener\PasswordResettingListener:
+        autowire: true
+        arguments:
+            $ttl: '%fos_user.resetting.retry_ttl%'
+            $superAdminEmail: '%env(SUPER_ADMIN_EMAIL)%'
+        tags:
+            - { name: kernel.event_listener, event: fos_user.resetting.reset.success, method: onPasswordResettingSuccess }
+            - { name: kernel.event_listener, event: fos_user.resetting.send_email.completed, method: onSendEmailCompleted }
+            - { name: kernel.event_listener, event: fos_user.resetting.send_email.initialize, method: onSendEmailInitialize }

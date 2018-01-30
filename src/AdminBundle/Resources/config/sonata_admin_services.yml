@@ -1,38 +1,114 @@
 services:
-    admin.user_admin:
+    sonata.admin.user:
         class: AdminBundle\Admin\UserAdmin
         arguments: [~, CoreBundle\Entity\User, ~]
         calls:
-            - [setUserManager, ["@fos_user.user_manager.default"]]
+            - [ setUserManager, ["@fos_user.user_manager.default"]]
+            - [ setAuthorizationChecker, ["@security.authorization_checker"]]
+            - [ setTemplate, [list, AdminBundle:CRUD/User:list.html.twig]]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: access, label: admin.menu.label.users, on_top: true }
-    admin.site_admin:
+            - { name: sonata.admin, manager_type: orm, group: admin.menu.label.access, icon: <i class="fa fa-id-card-o"></i>, label: admin.menu.label.users, on_top: true }
+
+    sonata.admin.site:
         class: AdminBundle\Admin\SiteAdmin
         arguments: [~, CoreBundle\Entity\Site, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: management, label: admin.menu.label.site}
-    admin.site_group_admin:
+            - { name: sonata.admin, manager_type: orm, group: admin.menu.label.management, icon: <i class="fa fa-cubes" aria-hidden="true"></i>, label: admin.menu.label.site}
+
+    sonata.admin.config:
+        class: AdminBundle\Admin\ConfigAdmin
+        arguments: [~, CoreBundle\Entity\Config, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: admin.menu.label.config}
+
+    sonata.admin.site_group:
         class: AdminBundle\Admin\SiteGroupAdmin
         arguments: [~, CoreBundle\Entity\SiteGroup, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: management, label: admin.menu.label.site_group }
-    admin.cms_page_admin:
-        class: AdminBundle\Admin\CmsPageAdmin
-        arguments: [~, CoreBundle\Document\CmsPage, ~]
+            - { name: sonata.admin, manager_type: orm, group: admin.menu.label.management, icon: <i class="fa fa-cubes" aria-hidden="true"></i>, label: admin.menu.label.site_group }
+
+    sonata.admin.category:
+        class: AdminBundle\Admin\CategoryAdmin
+        arguments: [~, CoreBundle\Document\Category, ~]
         tags:
-            - { name: sonata.admin, manager_type: doctrine_mongodb, group: content, label: admin.menu.label.cms_page }
-    admin.gallery_admin:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, group: admin.menu.label.categories, label: admin.menu.label.categories, on_top: true}
+        calls:
+            -
+              - setSubClasses
+              -
+                -
+                  admin.category.cms: CoreBundle\Document\CmsCategory
+                  admin.category.product: CoreBundle\Document\ProductCategory
+
+    sonata.admin.cms_category:
+            class: AdminBundle\Admin\CmsCategoryAdmin
+            arguments: [~, CoreBundle\Document\CmsCategory, ~]
+            tags:
+                - { name: sonata.admin, manager_type: doctrine_mongodb, group: admin.menu.label.content, icon: <i class="fa fa-paint-brush" aria-hidden="true"></i>, label: admin.menu.label.cms_category}
+
+    sonata.admin.gallery:
         class: AdminBundle\Admin\GalleryAdmin
         arguments: [~, CoreBundle\Document\Gallery, ~]
         tags:
-            - { name: sonata.admin, manager_type: doctrine_mongodb, group: content, label: admin.menu.label.gallery }
-    admin.image:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, group: admin.menu.label.content, icon: <i class="fa fa-paint-brush" aria-hidden="true"></i>, label: admin.menu.label.gallery }
+
+    sonata.admin.media:
+        class: AdminBundle\Admin\MediaAdmin
+        arguments: [~, CoreBundle\Document\Media, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, group: admin.menu.label.content, icon: <i class="fa fa-paint-brush" aria-hidden="true"></i>, label: admin.menu.label.media  }
+        calls:
+            - [ setTemplate, [show, AdminBundle:CRUD/MediaAdmin:show.html.twig]]
+            -
+              - setSubClasses
+              -
+                -
+                  admin.media.image: CoreBundle\Document\Image
+                  admin.media.video: CoreBundle\Document\Video
+                  admin.media.other: CoreBundle\Document\Other
+
+
+    sonata.admin.image:
         class: AdminBundle\Admin\ImageAdmin
         arguments: [~, CoreBundle\Document\Image, ~]
         tags:
-            - { name: sonata.admin, manager_type: doctrine_mongodb, group: admin, label: admin.menu.label.image }
-    admin.meta_keyword:
-        class: AdminBundle\Admin\MetaKeywordAdmin
-        arguments: [~, CoreBundle\Document\MetaKeyword, ~]
+            - { name: sonata.admin, manager_type: doctrine_mongodb, group: admin.menu.label.content, icon: <i class="fa fa-paint-brush" aria-hidden="true"></i>, label: admin.menu.label.image, show_in_dashboard: false }
+
+    sonata.admin.logo:
+        class: AdminBundle\Admin\LogoAdmin
+        arguments: [~, CoreBundle\Document\Logo, ~]
         tags:
-            - { name: sonata.admin, manager_type: doctrine_mongodb, group: admin, label: admin.menu.label.image }
+            - { name: sonata.admin, manager_type: doctrine_mongodb, group: admin.menu.label.management, icon: <i class="fa fa-paint-brush" aria-hidden="true"></i>, label: admin.menu.label.logo }
+
+    sonata.admin.favicon:
+        class: AdminBundle\Admin\FaviconAdmin
+        arguments: [~, CoreBundle\Document\Favicon, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, group: admin.menu.label.management, icon: <i class="fa fa-paint-brush" aria-hidden="true"></i>, label: admin.menu.label.favicon }
+
+    sonata.admin.video:
+        class: AdminBundle\Admin\VideoAdmin
+        arguments: [~, CoreBundle\Document\Video, ~]
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_mongodb, group: admin.menu.label.content, icon: <i class="fa fa-paint-brush" aria-hidden="true"></i>, label: admin.menu.label.video, show_in_dashboard: false }
+
+    sonata.admin.page:
+            class: AdminBundle\Admin\PageAdmin
+            arguments: [~, CoreBundle\Document\Page, ~]
+            tags:
+                - { name: sonata.admin, manager_type: doctrine_mongodb, group: admin.menu.label.content, icon: <i class="fa fa-paint-brush" aria-hidden="true"></i>, label: admin.menu.label.page }
+
+    sonata.admin.cms:
+            class: AdminBundle\Admin\CmsAdmin
+            arguments: [~, CoreBundle\Document\Cms, ~]
+            tags:
+                - { name: sonata.admin, manager_type: doctrine_mongodb, group: admin.menu.label.content, icon: <i class="fa fa-paint-brush" aria-hidden="true"></i>, label: admin.menu.label.cms }
+
+    sonata.admin.other:
+            class: AdminBundle\Admin\OtherAdmin
+            arguments: [~, CoreBundle\Document\Other, ~]
+            tags:
+                - { name: sonata.admin, manager_type: doctrine_mongodb, group: admin.menu.label.content, icon: <i class="fa fa-paint-brush" aria-hidden="true"></i>, label: admin.menu.label.other, show_in_dashboard: false }
+
+
+    

@@ -1,68 +1,65 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Created by PhpStorm.
+ * User: oadamczyk
+ * Date: 01.11.17
+ * Time: 22:59
  */
 
 namespace CoreBundle\Manager;
 
-use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Common\Persistence\ObjectRepository;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\HttpFoundation\Request;
+use CoreBundle\Model\AbstractObjectInterface;
+use CoreBundle\Service\AbstractServiceInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-/**
- * Abstract manager with basic dependency injections for child managers.
- *
- * @author oadamczyk
- */
-class AbstractManager implements AbstractManagerInterface
+abstract class AbstractManager implements AbstractManagerInterface
 {
+    /** @var ValidatorInterface */
+    protected $validator;
 
-    const PARENT_REQUEST_TYPE = 'Parent';
-    const MASTER_REQUEST_TYPE = 'Master';
+    /** @var AbstractServiceInterface */
+    protected $service;
 
-    /** @var ObjectManager */
-    protected $om;
+    /** @var string */
+    protected $modelClass;
 
-    /** @var RequestStack */
-    protected $requestStack;
-
-    /** @var ObjectRepository */
-    protected $repository;
-
-    public function __construct(ObjectManager $om, string $objectClassName, RequestStack $requestStack = null)
+    /**
+     * AbstractManager constructor.
+     * @param ValidatorInterface $validator
+     * @param AbstractServiceInterface|null $service
+     * @param string $modelClass
+     */
+    public function __construct(
+        ValidatorInterface $validator,
+        AbstractServiceInterface $service,
+        string $modelClass
+    )
     {
-        $this->om = $om;
-        $this->repository = $om->getRepository($objectClassName);
-        if ($requestStack instanceof RequestStack) {
-            $this->requestStack = $requestStack;
-        }
+        $this->validator = $validator;
+        $this->service = $service;
+        $this->modelClass = $modelClass;
     }
 
-    public function getObjectManager(): ObjectManager
+    /**
+     * @param AbstractObjectInterface $model
+     * @return Collection
+     */
+    public function validate(AbstractObjectInterface $model): Collection
     {
-        return $this->om;
+        $errors = new ArrayCollection();
+        foreach ($this->validator->validate($model) as $error) {
+            $errors->add($error);
+        }
+        return $errors;
     }
 
-    public function getRepository(): ObjectRepository
+    /**
+     * @return AbstractServiceInterface
+     */
+    public function getService(): AbstractServiceInterface
     {
-        return $this->repository;
+        return $this->service;
     }
-
-    public function getRequest(string $requestType = null): Request
-    {
-        if (!$requestType) {
-            return $this->requestStack->getCurrentRequest();
-        }
-        if ($requestType === self::MASTER_REQUEST_TYPE) {
-            return $this->requestStack->getMasterRequest();
-        }
-        if ($requestType === self::PARENT_REQUEST_TYPE) {
-            return $this->requestStack->getParentRequest();
-        }
-    }
-
 }

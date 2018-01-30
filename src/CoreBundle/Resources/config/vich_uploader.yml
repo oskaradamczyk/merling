@@ -1,0 +1,34 @@
+vich_uploader:
+    db_driver: mongodb
+    mappings:
+        others:
+            uri_prefix:         '%admin.path.uri_prefix.others%'
+            upload_destination: '%kernel.root_dir%/../web/%admin.path.uri_prefix.others%'
+            namer:              vich_uploader.namer_origname
+            inject_on_load:     true
+            delete_on_update:   true
+            delete_on_remove:   true
+
+        images:
+            uri_prefix:         '%admin.path.uri_prefix.images%'
+            upload_destination: '%kernel.root_dir%/../web/%admin.path.uri_prefix.images%'
+            namer:              vich_uploader.namer_origname
+            inject_on_load:     true
+            delete_on_update:   true
+            delete_on_remove:   true
+
+        favicon:
+            uri_prefix:         '%admin.path.uri_prefix.favicon%'
+            upload_destination: '%kernel.root_dir%/../web/%admin.path.uri_prefix.favicon%'
+            namer:              vich_uploader.namer_origname
+            inject_on_load:     true
+            delete_on_update:   true
+            delete_on_remove:   true
+
+        videos:
+            uri_prefix:         '%admin.path.uri_prefix.videos%'
+            upload_destination: '%kernel.root_dir%/../web/%admin.path.uri_prefix.videos%'
+            namer:              vich_uploader.namer_origname
+            inject_on_load:     true
+            delete_on_update:   true
+            delete_on_remove:   true

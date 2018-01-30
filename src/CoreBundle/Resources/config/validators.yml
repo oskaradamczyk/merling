@@ -1,0 +1,5 @@
+services:
+    CoreBundle\Validator\Constraints\OnePerSiteValidator:
+        tags:
+            - { name: validator.constraint_validator, alias: core_bundle.validator.one_logo_per_site }
+

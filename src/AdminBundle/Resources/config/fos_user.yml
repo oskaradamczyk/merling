@@ -1,0 +1,19 @@
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: CoreBundle\Entity\User
+    registration:
+        confirmation:
+            enabled: true
+    group:
+        group_class: CoreBundle\Entity\Group
+    service:
+        user_manager: fos_user.user_manager.default
+    from_email:
+        address:        oskar.adamczyk.404@gmail.com
+        sender_name:    Oskar Adamczyk
+    resetting:
+        email:
+            template:   '@AdminBundle/Resources/FOSUserBundle/views/Resetting/email.txt.twig'
+        form:
+            type: AdminBundle\Form\Type\UserResettingFormType

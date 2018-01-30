@@ -1,0 +1,32 @@
+{% block header %}
+    <div id="header" class="container-fluid">
+        <div id="document-progress-bar-background">
+            <div id="document-progress-bar"{% if app.session.get('frontend_already_visited') %} class="width100"{% endif %}></div>
+        </div>
+        {% if logo is not null %}
+            <img id="logo" src="{{ logo.fileUrl }}" alt="{{ logo.alt }}" title="{{ logo.title }}">
+        {% endif %}
+        <div id="upper-navbar" class="row">
+            <div class="border-decorator-horizontal"></div>
+            <div class="text-middle text-center col-sm-8 col-sm-offset-4 col-md-6 col-md-offset-6">
+                <a class="col-xs-2" href="{{ url('homepage') }}" title="{{ 'frontend.nav.home'|trans }}">
+                    <span class="helper"></span>
+                    <span class="text">{{ 'frontend.nav.home'|trans }}</span>
+                </a>
+                <a class="col-xs-2" href="{{ url('contact') }}" title="{{ 'frontend.nav.contact'|trans }}">
+                    <span class="helper"></span>
+                    <span class="text">{{ 'frontend.nav.contact'|trans }}</span>
+                </a>
+                <a class="col-xs-2" href="#" title="{{ 'frontend.placeholder.coming_soon'|trans }}">
+                    <span class="helper"></span>
+                    <span class="text">{{ 'frontend.nav.account'|trans }}</span>
+                </a>
+            </div>
+        </div>
+        <div id="cms-menu" class="row">
+            <div class="text-middle text-center col-md-10 col-md-offset-2">
+                {{ knp_menu_render('cms') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

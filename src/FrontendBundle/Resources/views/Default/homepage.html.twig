@@ -1,87 +1,71 @@
-{% extends 'FrontendBundle:Layout:main.html.twig' %}
+{% extends 'FrontendBundle:Layout:base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/frontend/js/parallax/parallax.min.js') }}"></script>
+{% endblock %}
+
 {% block content %}
-<main class="content">
-    <div class="mainContent1">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5 col-lg-5">
-                    <div class="textBlock">
-                        <h2>Możliwość awansu</h2>
-                        <button type="button" onclick='changeGlyphicon("1")' class="button-toggle collapsed" data-toggle="collapse" data-target="#blockTextContent1" aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span id="1" class="glyphicon glyphicon-chevron-down">
-                        </button>
-                        <p id="blockTextContent1"class="collapse" aria-expanded="false" style="height: 1px;">
-                            Przez cały kurs pływania indywidualnie obserwujemy
-                            dzieci i ich postępy.Jeżeli dziecko wykazuje większe umiejętności proponujemy
-                            przejście do grupy bardziej zaawansowanej.
-                        </p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 parallax-window" data-parallax="scroll"
+                 data-image-src="http://presstodev.dev/uploads/images/5a3c4ed25bcec883060696.jpg">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="primary-text">
+                            <span class="helper"></span>
+                            <span class="text">
+                                <h1>"Każdy jest inny, więc pływak mały czy duży jest traktowany indywidualnie.  Nikt nie jest pozostawiony sam sobie podczas zajęć."</h1>
+                                <p class="sign">Grzegorz Chorzelewski</p>
+                            </span>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-2 col-lg-2">
-                    <img class="swimmingGif" src="{{ asset('bundles/frontend/images/giphy.gif') }}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 padding0 content-container">
+                <div class="blur on-hover-fade"></div>
+                <div class="secondary-text">
+                    Przez cały kurs pływania indywidualnie obserwujemy dzieci i ich postępy.Jeżeli dziecko wykazuje
+                    większe umiejętności proponujemy przejście do grupy bardziej zaawansowanej.
                 </div>
-                <div class="col-md-5 col-lg-5">
-                    <div class="textBlock">
-                        <h2>Tworzymy podgrupy</h2>
-                        <button type="button" onclick='changeGlyphicon("2")' class="button-toggle collapsed" data-toggle="collapse" data-target="#blockTextContent2" aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span id="2" class="glyphicon glyphicon-chevron-down">
-                        </button>
-                        <p id="blockTextContent2" class="collapse" aria-expanded="false" style="height: 1px;">
-                            Dzieci, a szczególnie najmłodsza grupa wiekowa potrzebują więcej uwagi, a także ich
-                            umiejętności są na różnym poziomie,
-                            dlatego tworzymy małe podgrupy liczące max 6 osób.
-                        </p>
+            </div>
+            <div class="col-md-6 padding0 content-container">
+                <div class="blur on-hover-fade"></div>
+                <div class="secondary-text">
+                    Przez cały kurs pływania indywidualnie obserwujemy dzieci i ich postępy.Jeżeli dziecko wykazuje
+                    większe umiejętności proponujemy przejście do grupy bardziej zaawansowanej.
+                </div>
+            </div>
+            <div class="col-md-6 padding0 content-container">
+                <div class="blur on-hover-fade"></div>
+                <div class="secondary-text">
+                    Przez cały kurs pływania indywidualnie obserwujemy dzieci i ich postępy.Jeżeli dziecko wykazuje
+                    większe umiejętności proponujemy przejście do grupy bardziej zaawansowanej.
+                </div>
+            </div>
+            <div class="col-md-6 padding0 content-container">
+                <div class="blur on-hover-fade"></div>
+                <div class="secondary-text">
+                    Przez cały kurs pływania indywidualnie obserwujemy dzieci i ich postępy.Jeżeli dziecko wykazuje
+                    większe umiejętności proponujemy przejście do grupy bardziej zaawansowanej.
+                </div>
+            </div>
+            <div class="col-xs-12 parallax-window" data-parallax="scroll"
+                 data-image-src="	http://presstodev.dev/uploads/images/5a3cfddd8cd50_kids.jpeg">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="primary-text">
+                            <span class="helper"></span>
+                            <span class="text">
+                                <h1>"Każdy jest inny, więc pływak mały czy duży jest traktowany indywidualnie.  Nikt nie jest pozostawiony sam sobie podczas zajęć."</h1>
+                                <p class="sign">Grzegorz Chorzelewski</p>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="mainContent2">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-lg-4">
-                    <div class="textBlock">
-                        <h2>Trener w wodzie z maluchami</h2>
-                        <button type="button" onclick='changeGlyphicon("4")' class="button-toggle collapsed" data-toggle="collapse" data-target="#blockTextContent4" aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span id="4" class="glyphicon glyphicon-chevron-down">
-                        </button>
-                        <p id="blockTextContent4"class="collapse" aria-expanded="false" style="height: 1px;">
-                            Nasz trener z małymi uczniami jest w
-                            wodzie przez cały czas.
-                            Wtedy dzieciom jest raźniej i czują się bezpieczniej,
-                            intruktor pływania ma możliwość demonstracji ćwiczeń.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4">
-                    <div class="textBlock">
-                        <h2>Bezpieczeństwo to nasz priorytet</h2>
-                        <button type="button" onclick='changeGlyphicon("5")' class="button-toggle collapsed" data-toggle="collapse" data-target="#blockTextContent5" aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span id="5" class="glyphicon glyphicon-chevron-down">
-                        </button>
-                        <p id="blockTextContent5" class="collapse" aria-expanded="false" style="height: 1px;">
-                            Na zajęciach dbamy o dzieci jak o własne,
-                            bezpieczeństwo jest dla nas najważniejsze!
-                            Wybierając kurs pływania dla dzieci otrzymujesz gwarancje bezpieczeństwa.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="sloganContainer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 sloganBackground">
-                    <div class="sloganText">"Każdy jest inny, więc pływak mały czy duży jest traktowany indywidualnie.  Nikt nie jest pozostawiony sam sobie podczas zajęć."<br><br><span class="sign">Grzegorz Chorzelewski</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
 {% endblock %}

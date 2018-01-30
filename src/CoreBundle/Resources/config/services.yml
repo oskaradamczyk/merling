@@ -1,3 +1,45 @@
 imports:
-    - { resource: listeners.yml }
     - { resource: managers.yml }
+    - { resource: listeners.yml }
+    - { resource: factories.yml }
+    - { resource: validators.yml }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    CoreBundle\:
+        resource: '../../../../src/CoreBundle/*'
+        exclude: '../../../../src/CoreBundle/{Entity,Document,DataFixtures,Model,Manager,Listener,Factory}'
+
+    CoreBundle\Controller\:
+        resource: '../../../../src/CoreBundle/Controller'
+        public: true
+        arguments:
+            $twig: '@twig'
+            $debug: '%kernel.debug%'
+        tags: ['controller.service_arguments']
+
+    CoreBundle\Service\MailService:
+        arguments:
+            $logger: '@logger'
+        tags:
+            - { name: monolog.logger, channel: email }
+
+    CoreBundle\Service\AbstractService:
+        autowire: true
+        abstract: true
+
+    CoreBundle\Service\SiteService:
+        autowire: true
+        public: true
+        autoconfigure: false
+        parent: 'CoreBundle\Service\AbstractService'
+
+    CoreBundle\Service\SiteGroupService:
+        autowire: true
+        public: true
+        autoconfigure: false
+        parent: 'CoreBundle\Service\AbstractService'

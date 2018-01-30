@@ -1,49 +1,51 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Created by PhpStorm.
+ * User: oadamczyk
+ * Date: 01.09.17
+ * Time: 06:56
  */
 
 namespace CoreBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\HttpFoundation\File\File;
-use Gedmo\Mapping\Annotation as Gedmo;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
+use CoreBundle\Document\Category;
+use CoreBundle\Document\Favicon;
+use CoreBundle\Document\Image;
+use CoreBundle\Document\Logo;
 use CoreBundle\Entity\Setting;
 use CoreBundle\Entity\SiteGroup;
 use CoreBundle\Entity\Traits\SeoFriendlyEntity;
+use CoreBundle\Model\SiteAffiliationInterface;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * Site model mapped on DB.
- *
- * @author oadamczyk
- * 
- * @ORM\Entity
+ * Class Site
+ * @package CoreBundle\Entity
+ * @ORM\Entity(repositoryClass="CoreBundle\Repository\SiteRepository")
+ * @ORM\EntityListeners({"CoreBundle\Listener\EntityListener\SiteEntityListener"})
  * @ORM\Table(name="site")
  * @UniqueEntity(fields={"host", "baseUrl"})
  * @Vich\Uploadable
  */
-class Site extends AbstractEntityModel
+class Site extends EntityAbstractModel implements SiteAffiliationInterface
 {
-
     use SeoFriendlyEntity;
 
     /**
-     *
      * @var SiteGroup
      * @ORM\ManyToOne(targetEntity="SiteGroup", inversedBy="sites")
      */
     protected $siteGroup;
 
     /**
-     *
      * @var bool
      * @ORM\Column(type="boolean")
      * @Assert\Type("boolean")
@@ -51,7 +53,6 @@ class Site extends AbstractEntityModel
     protected $secure = false;
 
     /**
-     *
      * @var string
      * @ORM\Column(type="string")
      * @Assert\NotBlank()
@@ -59,131 +60,153 @@ class Site extends AbstractEntityModel
     protected $host;
 
     /**
-     *
      * @var string
      * @ORM\Column(type="string", nullable=true)
      */
     protected $baseUrl;
 
     /**
-     *
      * @var Collection
-     * @Gedmo\ReferenceMany(type="odm", class="CoreBundle\Document\CmsPage", mappedBy="site")
+     * @Gedmo\ReferenceMany(type="odm", class="CoreBundle\Document\Feature", mappedBy="site")
      */
-    protected $cmsPages;
+    protected $features;
 
     /**
-     *
+     * @var Collection
+     * @Gedmo\ReferenceMany(type="odm", class="CoreBundle\Document\Category", mappedBy="site")
+     */
+    protected $categories;
+
+    /**
      * @var Setting
      * @ORM\OneToOne(targetEntity="Setting", mappedBy="site", cascade={"persist", "remove"})
      */
     protected $setting;
 
     /**
-     * 
-     * @var File|null
-     * @Vich\UploadableField(mapping="favicon", fileNameProperty="faviconName")
+     * @var Favicon
+     * @Gedmo\ReferenceOne(type="odm", class="CoreBundle\Document\Favicon", mappedBy="site")
      */
-    protected $faviconFile;
+    protected $favicon;
 
     /**
-     *
+     * @var Logo
+     * @Gedmo\ReferenceOne(type="odm", class="CoreBundle\Document\Logo", mappedBy="site")
+     */
+    protected $logo;
+
+    /**
      * @var string
      * @ORM\Column(type="string", nullable=true)
      */
-    protected $faviconName;
+    protected $themeColor = '#000000';
 
     /**
-     * 
-     * @var File|null
-     * @Vich\UploadableField(mapping="logo", fileNameProperty="logoName")
-     */
-    protected $logoFile;
-
-    /**
-     *
      * @var string
      * @ORM\Column(type="string", nullable=true)
      */
-    protected $logoName;
+    protected $secondaryColor = '#000000';
 
+    /**
+     * Virtual field for absolute url of site
+     */
+    protected $absoluteUrl;
+
+    /**
+     * Site constructor.
+     */
     public function __construct()
     {
-        $this->cmsPages = new ArrayCollection();
-        $this->metaKeywords = new ArrayCollection();
+        $this->Cmss = new ArrayCollection();
     }
 
     /**
-     * 
-     * @return ArrayCollectio|null
+     * @return Collection
      */
-    public function getCmsPages()
+    public function getFeatures()
     {
-        return $this->cmsPages;
+        return $this->features;
     }
 
     /**
-     * 
-     * @param Collection $cmsPages
+     * @param Collection|null $features
      * @return \self
      */
-    public function setCmsPages(ArrayCollection $cmsPages): self
+    public function setFeatures(?Collection $features): self
     {
-        $this->cmsPages = $cmsPages;
+        if (!$features) {
+            $features = new ArrayCollection();
+        }
+        $this->features = $features;
         return $this;
     }
 
     /**
-     * 
+     * @return Collection
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    /**
+     * @param Collection|null $categories
+     * @return Site
+     */
+    public function setCategories(?Collection $categories): Site
+    {
+        if (!$categories) {
+            $categories = new ArrayCollection();
+        }
+        $this->categories = $categories;
+        return $this;
+    }
+
+    /**
      * @return SiteGroup|null
      */
-    public function getSiteGroup()
+    public function getSiteGroup(): ?SiteGroup
     {
         return $this->siteGroup;
     }
 
     /**
-     * 
-     * @return boolean|null
+     * @return boolean
      */
-    public function isSecure()
+    public function isSecure(): bool
     {
         return $this->secure;
     }
 
     /**
-     * 
      * @return string|null
      */
-    public function getHost()
+    public function getHost(): ?string
     {
         return $this->host;
     }
 
     /**
-     * 
      * @return string|null
      */
-    public function getBaseUrl()
+    public function getBaseUrl(): ?string
     {
         return $this->baseUrl;
     }
 
     /**
-     * 
-     * @param SiteGroup $group
-     * @return $this
+     * @param SiteGroup|null $group
+     * @return Site
      */
-    public function setSiteGroup(SiteGroup $group): self
+    public function setSiteGroup(?SiteGroup $group): self
     {
         $this->siteGroup = $group;
         return $this;
     }
 
     /**
-     * 
      * @param bool $secure
-     * @return $this
+     * @return Site
      */
     public function setSecure(bool $secure): self
     {
@@ -192,76 +215,52 @@ class Site extends AbstractEntityModel
     }
 
     /**
-     * 
-     * @param string $host
-     * @return $this
+     * @param null|string $host
+     * @return Site
      */
-    public function setHost(string $host): self
+    public function setHost(?string $host): self
     {
         $this->host = $host;
         return $this;
     }
 
     /**
-     * 
-     * @param string $baseUrl
-     * @return $this
+     * @param null|string $baseUrl
+     * @return Site
      */
-    public function setBaseUrl(string $baseUrl)
+    public function setBaseUrl(?string $baseUrl): self
     {
         $this->baseUrl = $baseUrl;
         return $this;
     }
 
     /**
-     * 
      * @return Setting
      */
-    public function getSetting()
+    public function getSetting(): ?Setting
     {
         return $this->setting;
     }
 
     /**
-     * 
-     * @return File|null
+     * @return Image|null
      */
-    public function getFaviconFile(): File
+    public function getFavicon(): ?Image
     {
-        return $this->faviconFile;
+        return $this->favicon;
     }
 
     /**
-     * 
-     * @return string|null
+     * @return Logo|null
      */
-    public function getFaviconName()
+    public function getLogo(): ?Logo
     {
-        return $this->faviconName;
+        return $this->logo;
     }
 
     /**
-     * 
-     * @return File|null
-     */
-    public function getLogoFile()
-    {
-        return $this->logoFile;
-    }
-
-    /**
-     * 
-     * @return string|null
-     */
-    public function getLogoName()
-    {
-        return $this->logoName;
-    }
-
-    /**
-     * 
-     * @param Setting|null $setting
-     * @return \self
+     * @param $setting
+     * @return Site
      */
     public function setSetting($setting): self
     {
@@ -270,71 +269,76 @@ class Site extends AbstractEntityModel
     }
 
     /**
-     * 
-     * @param File|null $faviconFile
-     * @return \self
+     * @param Image|null $favicon
+     * @return Site
      */
-    public function setFaviconFile($faviconFile): self
+    public function setFavicon(?Image $favicon): self
     {
-        $this->faviconFile = $faviconFile;
+        $this->favicon = $favicon;
         return $this;
     }
 
     /**
-     * 
-     * @param string|null $faviconName
-     * @return \self
+     * @param Logo|null $logo
+     * @return Site
      */
-    public function setFaviconName($faviconName): self
+    public function setLogo(?Logo $logo): self
     {
-        $this->faviconName = $faviconName;
+        $this->logo = $logo;
         return $this;
     }
 
     /**
-     * 
-     * @param File|null $logoFile
-     * @return \self
+     * @return null|string
      */
-    public function setLogoFile($logoFile): self
+    public function getThemeColor(): ?string
     {
-        $this->logoFile = $logoFile;
+        return $this->themeColor;
+    }
+
+    /**
+     * @param null|string $themeColor
+     * @return Site
+     */
+    public function setThemeColor(?string $themeColor): Site
+    {
+        $this->themeColor = $themeColor;
         return $this;
     }
 
     /**
-     * 
-     * @param string|null $logoName
-     * @return \self
-     */
-    public function setLogoName($logoName): self
-    {
-        $this->logoName = $logoName;
-        return $this;
-    }
-
-    /**
-     * 
      * @return string
      */
-    public function __toString(): string
+    public function getSecondaryColor(): ?string
     {
-        return $this->name ? $this->name : '';
+        return $this->secondaryColor;
     }
 
     /**
-     * 
-     * Virtual method for getting whole URL of site
-     * 
-     * @return string
+     * @param null|string $secondaryColor
+     * @return Site
      */
-    public function getAbsoluteUrl(): string
+    public function setSecondaryColor(?string $secondaryColor): Site
     {
-        $schema = 'http://';
-        if ($this->isSecure()) {
-            $schema = 'https://';
-        }
-        return implode('.', [$schema, (string) $this->host, (string) $this->baseUrl]);
+        $this->secondaryColor = $secondaryColor;
+        return $this;
     }
 
+    /**
+     * @return string|null
+     */
+    public function getAbsoluteUrl(): ?string
+    {
+        return $this->absoluteUrl;
+    }
+
+    /**
+     * @param string|null $absoluteUrl
+     * @return Site
+     */
+    public function setAbsoluteUrl(?string $absoluteUrl)
+    {
+        $this->absoluteUrl = $absoluteUrl;
+        return $this;
+    }
 }

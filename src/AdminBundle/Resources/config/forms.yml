@@ -1,0 +1,5 @@
+services:
+    test:
+        class: AdminBundle\Form\Type\UserResettingFormType:
+        tags:
+            - { name: form.type_extension, alias: admin_user_resetting_form_type }

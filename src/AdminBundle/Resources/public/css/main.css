@@ -1,0 +1,40 @@
+.vich-image-custom-list-preview {
+    max-width: 100px;
+    max-height: 100px;
+    cursor: pointer;
+}
+
+.vich-image-custom-show-preview {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.CodeMirror {
+    border: 1px solid #eee;
+    height: 250px !important;
+    cursor: text;
+}
+
+.code-mirror-aware-style-css .cm-tag {
+    color: #0055CC !important;
+}
+
+.code-mirror-aware-style-css .cm-number, .code-mirror-aware-style-javascript .cm-number {
+    color: #009955 !important;
+}
+
+.code-mirror-aware-style-css .cm-builtin {
+    color: #aa8800 !important;
+}
+
+.code-mirror-aware-style-javascript .cm-property {
+    color: #ee8800 !important;
+}
+
+.code-mirror-aware-style-javascript .cm-def {
+    color: #000000 !important;
+}
+
+.code-mirror-aware-style-javascript .cm-variable, .code-mirror-aware-style-javascript .cm-keyword {
+    color: #770088 !important;
+}

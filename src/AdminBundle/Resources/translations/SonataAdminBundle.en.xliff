@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="SonataAdminBundle.en.xliff">
+        <body>
+            <trans-unit id="admin.menu.label.default">
+                <source>admin.menu.label.default</source>
+                <target>Main</target>
+            </trans-unit>
+            <trans-unit id="admin.menu.label.dashboard">
+                <source>admin.menu.label.dashboard</source>
+                <target>Dashboard</target>
+            </trans-unit>
+            <trans-unit id="admin.menu.label.access">
+                <source>admin.menu.label.access</source>
+                <target>Access</target>
+            </trans-unit>
+            <trans-unit id="admin.menu.label.management">
+                <source>admin.menu.label.management</source>
+                <target>Manage</target>
+            </trans-unit>
+            <trans-unit id="admin.menu.label.content">
+                <source>admin.menu.label.content</source>
+                <target>Page content</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
